@@ -18,6 +18,7 @@ public class Share extends Investment {
         this.transactions = getTransactions();
         this.pricePerShare = getPricePerShare();
         this.companyValue = getCompanyValue();
+        this.userAmountShares = 0;
     }
 
     private double getCompanyValue() {
@@ -62,4 +63,5 @@ public class Share extends Investment {
     Price getPricePerShare() {
         return null;
     }
+
 }

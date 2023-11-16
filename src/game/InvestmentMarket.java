@@ -8,7 +8,7 @@ public class InvestmentMarket {
 
     Share[] shareList;
     Resource[] resourceList;
-    CryptoCurrency[] cryptoList;
+    Crypto[] cryptoList;
     ETF[] ETFList;
     String[] shareNameList;
     String[] resourceNameList;
@@ -25,12 +25,12 @@ public class InvestmentMarket {
     private void createLists() {
         this.shareList = new Share[10];
         this.resourceList = new Resource[4];
-        this.cryptoList = new CryptoCurrency[3];
+        this.cryptoList = new Crypto[3];
         this.ETFList = new ETF[3];
     }
 
     private void setNamesLists() {
-        this.shareNameList = new String[]{"Celestial Innovacorp", "QuantumSynth Enterprises", " GenoStellar Labs", "LuminaTech Ventures", "SunFusion Dynamics", "CyberGuardian Systems", "RoboFusion Innovations", "BioNovaGenix Solutions", "Earthbound Minerals", "Co.SkyWings", "Transport Technologies"};
+        this.shareNameList = new String[]{"Celestial Innovacorp", "QuantumSynth Enterprises", "GenoStellar Labs", "LuminaTech Ventures", "SunFusion Dynamics", "CyberGuardian Systems", "RoboFusion Innovations", "BioNovaGenix Solutions", "Earthbound Minerals", "Co.SkyWings", "Transport Technologies"};
         this.resourceNameList = new String[]{"Gold", "Öl", "Kupfer", "Eisen"};
         this.ETFNameList = new String[]{"MSCI World", "MSCI US", "ETC Group Physical Bitcoin"};
         this.cryptoNameList = new String[]{"Bitcoin", "Ethereum", "Dogecoin"};
@@ -67,7 +67,7 @@ public class InvestmentMarket {
 
     private void setCrypto() {
         int nextName = 0;
-        for (CryptoCurrency crypto : cryptoList) {
+        for (Crypto crypto : cryptoList) {
             crypto.name = setInformationList(nextName, cryptoNameList);
             nextName++;
         }

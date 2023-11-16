@@ -11,6 +11,7 @@ public class ETF extends Investment{
         this.dateOfEntry = getDateOfEntry();
         this.transactions = getTransactions();
         this.pricePerShare = getPricePerShare();
+        this.userAmountShares = 0;
     }
 
     @Override

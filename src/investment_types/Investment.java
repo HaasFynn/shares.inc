@@ -12,6 +12,7 @@ public abstract class Investment {
     public String dateOfEntry;
     public Transaction[] transactions;
     public Price pricePerShare;
+    public int userAmountShares;
 
     abstract String getName();
     abstract String getShortl();

@@ -4,30 +4,34 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class Price {
-
-    double currentPrice;
+    public double currentPrice;
     HashMap<Date, Double> pricesOverTime;
-    double highestPrice;
-    double lowestPrice;
 
-    public Price() {
-        this.currentPrice = getCurrentPrice(currentPrice);
-        this.pricesOverTime = getPricesOfAll(pricesOverTime);
-        this.highestPrice = getHighestPrice(highestPrice);
-        this.lowestPrice = getLowestPrice(lowestPrice);
+    public Price(Date currentDate, double currentPrice) {
+        this.currentPrice = currentPrice;
+        this.pricesOverTime = new HashMap<>();
+        this.pricesOverTime.put(currentDate, currentPrice);
     }
 
-    private HashMap<Date, Double> getPricesOfAll(HashMap<Date, Double> prices) {
+    public Price(HashMap<Date, Double> pricesOverTime) {
+        this.pricesOverTime = pricesOverTime;
+        this.currentPrice = this.pricesOverTime.get(new Date());
+    }
+
+
+    public HashMap<Date, Double> getPricesOfAll(HashMap<Date, Double> prices) {
         return prices;
     }
 
-    private double getCurrentPrice(double currentPrice) {
+    private double getCurrentPrice() {
         return currentPrice;
     }
-    private double getHighestPrice(double highestPrice) {
-        return highestPrice;
+
+    private double getHighestPrice() {
+        return pricesOverTime.values().stream().max(Double::compareTo).orElse(0.0);
     }
-    private double getLowestPrice(double lowestPrice) {
-        return lowestPrice;
+
+    private double getLowestPrice() {
+        return pricesOverTime.values().stream().min(Double::compareTo).orElse(0.0);
     }
 }

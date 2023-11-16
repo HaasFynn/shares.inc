@@ -1,47 +1,56 @@
 package main;
 
 import archive.Transaction;
+import function.Operator;
 import function.Reader;
 import game.User;
-import investment_types.CryptoCurrency;
+import investment_types.Crypto;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        testTransaction();
-        //startGame();
+        Reader.toBinaryFile binaryFile = new Reader.toBinaryFile();
+        start();
+        //start();
     }
 
-    private static void startGame() throws IOException {
-
-        Connection db = connectToSQL();
-        boolean userContinues;
-        do {
-            userContinues = Reader.getBooleanAnswer("Möchtest du noch eine Runde spielen?");
-        } while (userContinues);
+    private static void start() throws IOException {
+        Connection con = connectToSQL();
+        Operator operator = new Operator(con);
+        while (true) {
+            boolean loginSucceed;
+            do {
+                loginSucceed = operator.loginOperator();
+            } while (!loginSucceed);
+            boolean backToLogin;
+            do {
+                backToLogin = operator.menuOperator();
+            } while (!backToLogin);
+        }
     }
 
     private static Connection connectToSQL() {
-        Connection c = null;
-
+        String url = "jdbc:mysql://localhost:3306/phpmyadmin"; //jdbc:mysql://localhost:3306/phpmyadmin
+        String user = "root";
+        String pass = "";
+        Connection con = null;
         try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:sharesDB.db");
+            con = DriverManager.getConnection(url, user, pass);
+            System.out.println("Verbindung erfolgreich hergestellt");
         } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
+            System.err.println(e.getMessage());
         }
-        System.out.println("Opened database successfully");
-        return c;
+        return con;
     }
 
     private static void testTransaction() throws IOException {
         Transaction transaction = new Transaction();
-        CryptoCurrency bitcoin = new CryptoCurrency();
+        Crypto bitcoin = new Crypto();
         bitcoin.name = "bitcoin";
         transaction.date = new Date();
         transaction.sender = new User();
