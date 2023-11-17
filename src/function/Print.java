@@ -6,6 +6,8 @@ import investment_types.ETF;
 import investment_types.Resource;
 import investment_types.Share;
 
+import java.sql.SQLException;
+
 public class Print {
 
     public static void printLoginMenu() {
@@ -70,9 +72,9 @@ public class Print {
     }
 
     public static void printError(String errorText) {
-        System.err.println("-------------------------------");
+        System.err.println("----------------------------------------------------------------------------");
         System.err.println(errorText);
-        System.err.println("-------------------------------");
+        System.err.println("----------------------------------------------------------------------------");
     }
 
     static void loginSucceed(User user) {
@@ -126,4 +128,14 @@ public class Print {
     }
 
 
+    public static void customStackPrint(SQLException e) {
+        System.out.println();
+        System.out.println("..............................................");
+        System.out.println();
+        e.printStackTrace();
+        System.out.println();
+        System.out.println("..............................................");
+        System.out.println();
+
+    }
 }

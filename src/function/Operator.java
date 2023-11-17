@@ -7,14 +7,12 @@ import investment_types.Resource;
 import investment_types.Share;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
 
 public class Operator {
-    static Connection con;
     Share[] shares;
     Resource[] resources;
     ETF[] etfs;
@@ -22,16 +20,30 @@ public class Operator {
     static User loggedInUser;
     static HashMap<String, User> userList = getUserList();
 
-    public Operator(Connection conn) {
+    public Operator() {
         this.shares = new Share[10];
         this.resources = new Resource[4];
         this.etfs = new ETF[3];
         this.cryptos = new Crypto[3];
-        con = conn;
     }
 
     private static HashMap<String, User> getUserList() {
-        return new HashMap<>();
+        HashMap<String, User> userList = new HashMap<>();
+        int numberOfDatasets = SQL.getLastDataset();
+        for (int i = 1; i < numberOfDatasets; i++) {
+            User user = SQL.getUserFromDB(i);
+            userList.put(user.userID, user);
+        }
+        return userList;
+    }
+
+    public static User getUserInformation(User user) throws IOException {
+        user.username = Reader.getStringAnswer("Benutzername:");
+        user.firstName = Reader.getStringAnswer("Vorname:");
+        user.lastName = Reader.getStringAnswer("Nachname:");
+        user.email = Reader.getValidEmailAnswer("E-mail:");
+        user.password = Reader.getValidPassword();
+        return user;
     }
 
 
@@ -179,6 +191,7 @@ public class Operator {
         if (isUserAuthorizedToDeleteAcc()) {
             userList.remove(loggedInUser.userID);
         }
+        SQL.deleteUser(loggedInUser.userID);
     }
 
     private boolean isUserAuthorizedToDeleteAcc() throws IOException {
@@ -199,6 +212,7 @@ public class Operator {
             if (password.equals(loggedInUser.password)) {
                 loggedInUser.email = newEmail;
                 System.out.println("Änderung erfolgreich!");
+
             } else {
                 Print.printError("Das Passwort ist inkorrekt!");
             }
@@ -298,20 +312,16 @@ public class Operator {
         User newUser = new User();
         userList.put(newUser.userID, newUser);
         String usernameInput = Reader.getStringAnswer("Username:");
-        while (!usernameIsFree(usernameInput)) {
+        while (!isUsernameFree(usernameInput)) {
             Print.printError("Username wird bereits verwendet!");
             usernameInput = Reader.getStringAnswer("Geben sie einen anderen Username ein:");
         }
         newUser.username = usernameInput;
-        addUserToDB(newUser);
+        SQL.addUserToDB(newUser);
         System.out.println("Erfolgreich registriert!");
     }
 
-    private void addUserToDB(User newUser) {
-
-    }
-
-    private boolean usernameIsFree(String usernameInput) {
+    private boolean isUsernameFree(String usernameInput) {
         for (Map.Entry<String, User> entry : userList.entrySet()) {
             User user = entry.getValue();
             if (usernameInput.equals(user.username)) {

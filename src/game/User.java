@@ -2,7 +2,6 @@ package game;
 
 import archive.Transaction;
 import investment_types.Portfolio;
-import function.Reader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,14 +19,14 @@ public class User {
     public ArrayList<Transaction> userTransactionList;
     public Portfolio userPortfolio;
 
-    public User() throws IOException {
+    public User() {
         this.userID = getNewUserID();
         this.username = "";
-        this.firstName = Reader.getStringAnswer("Vorname:");
-        this.lastName = Reader.getStringAnswer("Nachname:");
-        this.email = Reader.getValidEmailAnswer("E-Mail:");
-        this.password = Reader.getValidPassword();
-        this.accountBalance = getAccountBalance(accountBalance);
+        this.firstName = "";
+        this.lastName = "";
+        this.email = "";
+        this.password = "";
+        this.accountBalance = 0;
         this.userTransactionList = getUserTransactionList();
         this.userPortfolio = getUserPortfolio();
     }
@@ -42,11 +41,6 @@ public class User {
 
     private ArrayList<Transaction> getUserTransactionList() {
         return new ArrayList<>();
-    }
-
-
-    private double getAccountBalance(double accountBalance) {
-        return accountBalance;
     }
 
     public String toString() {

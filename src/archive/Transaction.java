@@ -1,23 +1,23 @@
 package archive;
 
-import game.User;
-
 import java.util.Date;
 
 public class Transaction {
 
+    public String transactionID;
     public Date date;
-    public User sender;
-    public User receiver;
-    public String tradedInvestment;
+    public String senderID;
+    public String receiverID;
+    public String Investment;
     public int amount;
-    public double transferedMoney;
+    public double transferAmount;
 
     public Transaction() {
         this.date = new Date();
     }
+
     public String toString() {
         String splitLine = "\n----------------------------------\n";
-        return (splitLine + "Datum der Transaktion: " + date + "\n" + "Sender: " + sender.firstName + " " + sender.lastName + "\n" + "Empfänger: " + receiver.firstName + " " + receiver.lastName + splitLine + tradedInvestment + "\n" + "Anzahl: " + amount + splitLine + "Übertragener Betrag: " + transferedMoney + splitLine);
+        return (splitLine + "TransaktionsID: " + transactionID + "\n" + "Datum der Transaktion: " + date + "\n" + "Sender ID: " + receiverID + "\n" + "Empfänger ID: " + receiverID + splitLine + Investment + "\n" + "Anzahl: " + amount + splitLine + "Übertragener Betrag: " + transferAmount + splitLine);
     }
 }
