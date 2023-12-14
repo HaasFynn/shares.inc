@@ -124,10 +124,10 @@ public class MetaDataRegressionTest extends BaseTestCase {
             ResultSetMetaData rsmd = this.rs.getMetaData();
 
             assertTrue(rsmd.getColumnClassName(1).equals(this.rs.getObject(1).getClass().getName()));
-            assertTrue("java.lang.Integer".equals(rsmd.getColumnClassName(1)));
+            assertTrue("java.appl_main.lang.Integer".equals(rsmd.getColumnClassName(1)));
 
             assertTrue(rsmd.getColumnClassName(2).equals(this.rs.getObject(2).getClass().getName()));
-            assertTrue("java.lang.Integer".equals(rsmd.getColumnClassName(2)));
+            assertTrue("java.appl_main.lang.Integer".equals(rsmd.getColumnClassName(2)));
         } finally {
             this.stmt.executeUpdate("DROP TABLE IF EXISTS testBug2852");
         }
@@ -152,7 +152,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
             ResultSetMetaData rsmd = this.rs.getMetaData();
 
             assertTrue(rsmd.getColumnClassName(1).equals(this.rs.getObject(1).getClass().getName()));
-            assertTrue("java.lang.Float".equals(rsmd.getColumnClassName(1)));
+            assertTrue("java.appl_main.lang.Float".equals(rsmd.getColumnClassName(1)));
         } finally {
             this.stmt.executeUpdate("DROP TABLE IF EXISTS testBug2855");
         }
@@ -1310,7 +1310,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
     public void testBug16277() throws Exception {
         createTable("testBug16277", "(field1 BIGINT, field2 BIGINT UNSIGNED)");
         ResultSetMetaData rsmd = this.stmt.executeQuery("SELECT field1, field2 FROM testBug16277").getMetaData();
-        assertEquals("java.lang.Long", rsmd.getColumnClassName(1));
+        assertEquals("java.appl_main.lang.Long", rsmd.getColumnClassName(1));
         assertEquals("java.math.BigInteger", rsmd.getColumnClassName(2));
     }
 
@@ -1410,7 +1410,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
     /**
      * Tests fix for BUG#21544 - When using information_schema for metadata, COLUMN_SIZE for getColumns() is not clamped to range
-     * of java.lang.Integer as is the case when not using information_schema, thus leading to a truncation exception that
+     * of java.appl_main.lang.Integer as is the case when not using information_schema, thus leading to a truncation exception that
      * isn't present when not using information_schema.
      *
      * @throws Exception
@@ -3512,7 +3512,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
         assertTrue(functionsMD.next(), sd + "one row expected.");
 
-        // function: testBug69298_func
+        // appl_main.function: testBug69298_func
 
         assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), functionsMD.getString("FUNCTION_CAT"), sd + "-> FUNCTION_CAT");
         assertEquals(dbMapsToSchema ? testConn.getSchema() : null, functionsMD.getString("FUNCTION_SCHEM"), sd + "-> FUNCTION_SCHEM");
@@ -3533,7 +3533,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
         assertTrue(funcColsMD.next(), sd + "1st of 2 rows expected.");
 
-        // function column: testBug69298_func return
+        // appl_main.function column: testBug69298_func return
         assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), funcColsMD.getString("FUNCTION_CAT"), sd + "-> FUNCTION_CAT");
         assertEquals(dbMapsToSchema ? testConn.getSchema() : null, funcColsMD.getString("FUNCTION_SCHEM"), sd + "-> FUNCTION_SCHEM");
         assertEquals("testBug69298_func", funcColsMD.getString("FUNCTION_NAME"), sd + "-> FUNCTION_NAME");
@@ -3554,7 +3554,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
         assertTrue(funcColsMD.next(), sd + "2nd of 2 rows expected.");
 
-        // function column: testBug69298_func.param_func
+        // appl_main.function column: testBug69298_func.param_func
         assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), funcColsMD.getString("FUNCTION_CAT"), sd + "-> FUNCTION_CAT");
         assertEquals(dbMapsToSchema ? testConn.getSchema() : null, funcColsMD.getString("FUNCTION_SCHEM"), sd + "-> FUNCTION_SCHEM");
         assertEquals("testBug69298_func", funcColsMD.getString("FUNCTION_NAME"), sd + "-> FUNCTION_NAME");
@@ -3588,7 +3588,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
         if (isGetProceduresReturnsFunctions) {
             assertTrue(proceduresMD.next(), sd + "1st of 2 rows expected.");
 
-            // function: testBug69298_func
+            // appl_main.function: testBug69298_func
             assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), proceduresMD.getString("PROCEDURE_CAT"), sd + "-> PROCEDURE_CAT");
             assertEquals(dbMapsToSchema ? testConn.getSchema() : null, proceduresMD.getString("PROCEDURE_SCHEM"), sd + "-> PROCEDURE_SCHEM");
             assertEquals("testBug69298_func", proceduresMD.getString("PROCEDURE_NAME"), sd + "-> PROCEDURE_NAME");
@@ -3624,7 +3624,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
         if (isGetProceduresReturnsFunctions) {
             assertTrue(procColsMD.next(), sd + "1st of 3 rows expected.");
 
-            // function column: testBug69298_func return
+            // appl_main.function column: testBug69298_func return
             assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), procColsMD.getString("PROCEDURE_CAT"), sd + "-> PROCEDURE_CAT");
             assertEquals(dbMapsToSchema ? testConn.getSchema() : null, procColsMD.getString("PROCEDURE_SCHEM"), sd + "-> PROCEDURE_SCHEM");
             assertEquals("testBug69298_func", procColsMD.getString("PROCEDURE_NAME"), sd + "-> PROCEDURE_NAME");
@@ -3648,7 +3648,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
             assertTrue(procColsMD.next(), sd + "2nd of 3 rows expected.");
 
-            // function column: testBug69298_func.param_func
+            // appl_main.function column: testBug69298_func.param_func
             assertEquals(dbMapsToSchema ? "def" : testConn.getCatalog(), procColsMD.getString("PROCEDURE_CAT"), sd + "-> PROCEDURE_CAT");
             assertEquals(dbMapsToSchema ? testConn.getSchema() : null, procColsMD.getString("PROCEDURE_SCHEM"), sd + "-> PROCEDURE_SCHEM");
             assertEquals("testBug69298_func", procColsMD.getString("PROCEDURE_NAME"), sd + "-> PROCEDURE_NAME");
@@ -3714,7 +3714,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
         Connection testConn;
 
-        // create one stored procedure and one function with same name
+        // create one stored procedure and one appl_main.function with same name
         createProcedure("testBug17248345", "(IN proccol INT) SELECT 1");
         createFunction("testBug17248345", "(funccol INT) RETURNS INT DETERMINISTIC RETURN 1");
 
@@ -3788,7 +3788,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
         assertFalse(rsMD.next(), sd + "no more rows expected.");
 
         // getProcedures() must return 1 or 2 records, depending on if getProceduresReturnsFunctions is false or true
-        // respectively. When exists a procedure and a function with same name, function is returned first.
+        // respectively. When exists a procedure and a appl_main.function with same name, appl_main.function is returned first.
         sd = stepDescription + " getProcedures() ";
         rsMD = testDbMetaData.getProcedures(null, null, "testBug17248345");
         if (getProcRetFunc) {
@@ -3802,7 +3802,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
         assertFalse(rsMD.next(), sd + "no more rows expected.");
 
         // getProcedureColumns() must return 1 or 3 records, depending on if getProceduresReturnsFunctions is false or
-        // true respectively. When exists a procedure and a function with same name, function is returned first.
+        // true respectively. When exists a procedure and a appl_main.function with same name, appl_main.function is returned first.
         sd = stepDescription + " getProcedureColumns() ";
         rsMD = testDbMetaData.getProcedureColumns(null, null, "testBug17248345", "%");
         if (getProcRetFunc) {
@@ -3985,8 +3985,8 @@ public class MetaDataRegressionTest extends BaseTestCase {
         assertTrue(this.rs.next());
         assertEquals(Types.SMALLINT, rsMetaData.getColumnType(1), "YEAR columns should be treated as java.sql.Types.SMALLINT");
         assertEquals("YEAR", rsMetaData.getColumnTypeName(1), "YEAR columns should be identified as 'YEAR'");
-        assertEquals(java.lang.Short.class.getName(), rsMetaData.getColumnClassName(1), "YEAR columns should be mapped to java.lang.Short");
-        assertEquals(java.lang.Short.class.getName(), this.rs.getObject(1).getClass().getName(), "YEAR columns should be returned as java.lang.Short");
+        assertEquals(java.lang.Short.class.getName(), rsMetaData.getColumnClassName(1), "YEAR columns should be mapped to java.appl_main.lang.Short");
+        assertEquals(java.lang.Short.class.getName(), this.rs.getObject(1).getClass().getName(), "YEAR columns should be returned as java.appl_main.lang.Short");
 
         testConnection.close();
 
@@ -4040,7 +4040,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
         this.rs = testDbMetaData.getFunctionColumns(null, null, "testBug68307_%", "%");
 
         while (this.rs.next()) {
-            String message = testAgainst + ", function <" + this.rs.getString("FUNCTION_NAME") + "." + this.rs.getString("COLUMN_NAME") + ">";
+            String message = testAgainst + ", appl_main.function <" + this.rs.getString("FUNCTION_NAME") + "." + this.rs.getString("COLUMN_NAME") + ">";
             if (this.rs.getString("COLUMN_NAME") == null || this.rs.getString("COLUMN_NAME").length() == 0) {
                 assertEquals(DatabaseMetaData.functionReturn, this.rs.getShort("COLUMN_TYPE"), message);
             } else if (this.rs.getString("COLUMN_NAME").endsWith("_in")) {
@@ -4156,7 +4156,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
             try {
                 /*
-                 * test DatabaseMetadata.getProcedureColumns for function
+                 * test DatabaseMetadata.getProcedureColumns for appl_main.function
                  */
                 int i = 1;
                 try {
@@ -4165,13 +4165,13 @@ public class MetaDataRegressionTest extends BaseTestCase {
 
                         if (useFuncsInProcs) {
                             assertTrue(testRs.next(), testDesc);
-                            assertEquals("", testRs.getString(4), testDesc + "; " + testCase + "." + i + ". expected function column name (empty)");
+                            assertEquals("", testRs.getString(4), testDesc + "; " + testCase + "." + i + ". expected appl_main.function column name (empty)");
                             assertEquals(DatabaseMetaData.procedureColumnReturn, testRs.getInt(5),
-                                    testDesc + "; " + testCase + "." + i + ". expected function column type (empty)");
+                                    testDesc + "; " + testCase + "." + i + ". expected appl_main.function column type (empty)");
                             assertTrue(testRs.next(), testDesc);
-                            assertEquals("namef", testRs.getString(4), testDesc + "; " + testCase + "." + i + ". expected function column name");
+                            assertEquals("namef", testRs.getString(4), testDesc + "; " + testCase + "." + i + ". expected appl_main.function column name");
                             assertEquals(DatabaseMetaData.procedureColumnIn, testRs.getInt(5),
-                                    testDesc + "; " + testCase + "." + i + ". expected function column type (empty)");
+                                    testDesc + "; " + testCase + "." + i + ". expected appl_main.function column type (empty)");
                             assertFalse(testRs.next(), testDesc);
                         } else {
                             assertFalse(testRs.next(), testDesc);
@@ -4182,7 +4182,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
                     }
                 } catch (SQLException e) {
                     assertFalse(e.getMessage().matches("FUNCTION `testBug20504139(:?`{2})?[fp]` does not exist"), testDesc + "; " + testCase + "." + i
-                            + ". failed to retrieve function columns, with getProcedureColumns(), from database meta data.");
+                            + ". failed to retrieve appl_main.function columns, with getProcedureColumns(), from database meta data.");
                     throw e;
                 }
 
@@ -4209,7 +4209,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
                 }
 
                 /*
-                 * test DatabaseMetadata.getFunctionColumns for function
+                 * test DatabaseMetadata.getFunctionColumns for appl_main.function
                  */
                 i = 1;
                 try {
@@ -4217,11 +4217,11 @@ public class MetaDataRegressionTest extends BaseTestCase {
                         testRs = dbMapsToSchema ? dbmd.getFunctionColumns("", this.dbName, name, "%") : dbmd.getFunctionColumns(this.dbName, "", name, "%");
 
                         assertTrue(testRs.next());
-                        assertEquals("", testRs.getString(4), testCase + ". expected function column name (empty)");
-                        assertEquals(DatabaseMetaData.functionReturn, testRs.getInt(5), testCase + ". expected function column type (empty)");
+                        assertEquals("", testRs.getString(4), testCase + ". expected appl_main.function column name (empty)");
+                        assertEquals(DatabaseMetaData.functionReturn, testRs.getInt(5), testCase + ". expected appl_main.function column type (empty)");
                         assertTrue(testRs.next());
-                        assertEquals("namef", testRs.getString(4), testCase + ". expected function column name");
-                        assertEquals(DatabaseMetaData.functionColumnIn, testRs.getInt(5), testCase + ". expected function column type (empty)");
+                        assertEquals("namef", testRs.getString(4), testCase + ". expected appl_main.function column name");
+                        assertEquals(DatabaseMetaData.functionColumnIn, testRs.getInt(5), testCase + ". expected appl_main.function column type (empty)");
                         assertFalse(testRs.next());
 
                         testRs.close();
@@ -4229,7 +4229,7 @@ public class MetaDataRegressionTest extends BaseTestCase {
                     }
                 } catch (SQLException e) {
                     assertFalse(e.getMessage().matches("FUNCTION `testBug20504139(:?`{2})?[fp]` does not exist"),
-                            testCase + "." + i + ". failed to retrieve function columns, with getFunctionColumns(), from database meta data.");
+                            testCase + "." + i + ". failed to retrieve appl_main.function columns, with getFunctionColumns(), from database meta data.");
                     throw e;
                 }
 

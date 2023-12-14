@@ -157,7 +157,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
          *
          * @param fullParamInfo
          *            the metadata for all parameters for this stored
-         *            procedure or function.
+         *            procedure or appl_main.function.
          */
         CallableStatementParamInfo(CallableStatementParamInfo fullParamInfo) {
             this.nativeSql = ((PreparedQuery) CallableStatement.this.query).getOriginalSql();
@@ -479,7 +479,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
      * @param db
      *            the current database
      * @param isFunctionCall
-     *            is it a function call or a procedure call?
+     *            is it a appl_main.function call or a procedure call?
      * @return CallableStatement
      * @throws SQLException
      *             if an error occurs
@@ -517,7 +517,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
 
             int parameterCountFromMetaData = this.paramInfo.getParameterCount();
 
-            // Ignore the first ? if this is a stored function, it doesn't count
+            // Ignore the first ? if this is a stored appl_main.function, it doesn't count
 
             if (this.callingStoredFunction) {
                 parameterCountFromMetaData--;
@@ -572,7 +572,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
      * @param db
      *            the current database
      * @param isFunctionCall
-     *            is it a function call or a procedure call?
+     *            is it a appl_main.function call or a procedure call?
      *
      * @throws SQLException
      *             if an error occurs
@@ -701,7 +701,7 @@ public class CallableStatement extends ClientPreparedStatement implements java.s
      * SHOW CREATE PROCEDURE or mysql.proc.
      *
      * @param isReallyProcedure
-     *            is it a procedure or function
+     *            is it a procedure or appl_main.function
      *
      * @throws SQLException
      *             if we can't build the metadata.

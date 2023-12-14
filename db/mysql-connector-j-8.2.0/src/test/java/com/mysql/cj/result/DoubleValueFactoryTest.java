@@ -55,7 +55,7 @@ public class DoubleValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Double", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -63,7 +63,7 @@ public class DoubleValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Double", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -71,7 +71,7 @@ public class DoubleValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Double", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -91,11 +91,11 @@ public class DoubleValueFactoryTest extends CommonAsserts {
         assertEquals(Double.valueOf(Double.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE.toBigInteger()));
         assertEquals(Double.valueOf(-1d), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Double.valueOf(-Double.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_NEGATIVE_DOUBLE_VALUE.toBigInteger()));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE.toBigInteger().add(Constants.BIG_INTEGER_ONE));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf
                     .createFromBigInteger(Constants.BIG_DECIMAL_MAX_NEGATIVE_DOUBLE_VALUE.toBigInteger().subtract(Constants.BIG_INTEGER_ONE));
             return null;
@@ -108,11 +108,11 @@ public class DoubleValueFactoryTest extends CommonAsserts {
         assertEquals(Double.valueOf(Double.MAX_VALUE), this.vf.createFromDouble(Double.MAX_VALUE));
         assertEquals(Double.valueOf(-1d), this.vf.createFromDouble(-1));
         assertEquals(Double.valueOf(-Double.MAX_VALUE), this.vf.createFromDouble(-Double.MAX_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromDouble(Double.MAX_VALUE + Double.MAX_VALUE);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromDouble((-Double.MAX_VALUE) - Double.MAX_VALUE);
             return null;
         });
@@ -124,11 +124,11 @@ public class DoubleValueFactoryTest extends CommonAsserts {
         assertEquals(Double.valueOf(Double.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE));
         assertEquals(Double.valueOf(-1), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Double.valueOf(-Double.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_NEGATIVE_DOUBLE_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE.add(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Double", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Double", () -> {
             DoubleValueFactoryTest.this.vf
                     .createFromBigDecimal(Constants.BIG_DECIMAL_MAX_NEGATIVE_DOUBLE_VALUE.subtract(Constants.BIG_DECIMAL_MAX_DOUBLE_VALUE));
             return null;

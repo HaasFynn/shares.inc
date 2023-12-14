@@ -44,7 +44,7 @@ public class Security {
     private static int CACHING_SHA2_DIGEST_LENGTH = 32;
 
     /**
-     * Encrypt/Decrypt function used for password encryption in authentication
+     * Encrypt/Decrypt appl_main.function used for password encryption in authentication
      *
      * Simple XOR is used here but it is OK as we encrypt random strings
      *

@@ -58,7 +58,7 @@ public class IntegerValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Integer", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -66,7 +66,7 @@ public class IntegerValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Integer", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -74,7 +74,7 @@ public class IntegerValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Integer", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -86,11 +86,11 @@ public class IntegerValueFactoryTest extends CommonAsserts {
         assertEquals(Integer.valueOf(Integer.MAX_VALUE), this.vf.createFromLong(Integer.MAX_VALUE));
         assertEquals(Integer.valueOf(-1), this.vf.createFromLong(-1));
         assertEquals(Integer.valueOf(Integer.MIN_VALUE), this.vf.createFromLong(Integer.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value '2147483648' is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '2147483648' is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromLong((long) Integer.MAX_VALUE + 1);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value '-2147483649' is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '-2147483649' is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromLong((long) Integer.MIN_VALUE - 1);
             return null;
         });
@@ -102,11 +102,11 @@ public class IntegerValueFactoryTest extends CommonAsserts {
         assertEquals(Integer.valueOf(Integer.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MAX_INTEGER_VALUE));
         assertEquals(Integer.valueOf(-1), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Integer.valueOf(Integer.MIN_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MIN_INTEGER_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf((long) Integer.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf((long) Integer.MIN_VALUE - 1));
             return null;
         });
@@ -118,11 +118,11 @@ public class IntegerValueFactoryTest extends CommonAsserts {
         assertEquals(Integer.valueOf(Integer.MAX_VALUE), this.vf.createFromDouble(Integer.MAX_VALUE));
         assertEquals(Integer.valueOf(-1), this.vf.createFromDouble(-1));
         assertEquals(Integer.valueOf(Integer.MIN_VALUE), this.vf.createFromDouble(Integer.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromDouble(Integer.MAX_VALUE + 0.5);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromDouble(Integer.MIN_VALUE - 0.5);
             return null;
         });
@@ -134,11 +134,11 @@ public class IntegerValueFactoryTest extends CommonAsserts {
         assertEquals(Integer.valueOf(Integer.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_INTEGER_VALUE));
         assertEquals(Integer.valueOf(-1), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Integer.valueOf(Integer.MIN_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MIN_INTEGER_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf((long) Integer.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf((long) Integer.MIN_VALUE - 1));
             return null;
         });
@@ -188,20 +188,20 @@ public class IntegerValueFactoryTest extends CommonAsserts {
         assertEquals(Integer.valueOf((int) 0xffffffL), this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 3));
         assertEquals(Integer.valueOf((int) 0xffffffffL), this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 4));
 
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 5);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 6);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf
                     .createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 7);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Integer", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Integer", () -> {
             IntegerValueFactoryTest.this.vf
                     .createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 8);
             return null;

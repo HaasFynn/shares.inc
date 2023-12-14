@@ -366,7 +366,7 @@ public class CollectionModifyTest extends BaseCollectionTestCase {
                 + "}").execute();
 
         // Adding a new field to multiple documents
-        this.collection.modify("language = :lang").patch("{\"translations\": [\"Spanish\"]}").bind("lang", "English").execute();
+        this.collection.modify("language = :appl_main.lang").patch("{\"translations\": [\"Spanish\"]}").bind("lang", "English").execute();
         docs = this.collection.find("_id = :id").bind("id", id).limit(1).execute();
         assertTrue(docs.hasNext());
         DbDoc doc = docs.next();
@@ -397,7 +397,7 @@ public class CollectionModifyTest extends BaseCollectionTestCase {
         assertEquals("France", ((JsonString) doc2.get("country")).getString());
 
         // Replacing/Updating a field's value in multiple documents
-        this.collection.modify("language = :lang").patch("{\"translations\": [\"Spanish\", \"Italian\"]}").bind("lang", "English").execute();
+        this.collection.modify("language = :appl_main.lang").patch("{\"translations\": [\"Spanish\", \"Italian\"]}").bind("lang", "English").execute();
         docs = this.collection.find("_id = :id").bind("id", id).limit(1).execute();
         assertTrue(docs.hasNext());
         doc = docs.next();
@@ -429,7 +429,7 @@ public class CollectionModifyTest extends BaseCollectionTestCase {
         assertEquals("Canada", ((JsonString) doc2.get("country")).getString());
 
         // Removing a field from multiple documents:
-        this.collection.modify("language = :lang").patch("{\"translations\": null}").bind("lang", "English").execute();
+        this.collection.modify("language = :appl_main.lang").patch("{\"translations\": null}").bind("lang", "English").execute();
         docs = this.collection.find("_id = :id").bind("id", id).limit(1).execute();
         assertTrue(docs.hasNext());
         doc = docs.next();

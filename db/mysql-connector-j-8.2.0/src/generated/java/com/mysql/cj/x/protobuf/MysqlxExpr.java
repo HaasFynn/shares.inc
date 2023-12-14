@@ -5773,7 +5773,7 @@ public final class MysqlxExpr {
 
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -5782,7 +5782,7 @@ public final class MysqlxExpr {
     boolean hasName();
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -5791,7 +5791,7 @@ public final class MysqlxExpr {
     com.mysql.cj.x.protobuf.MysqlxExpr.Identifier getName();
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -5897,7 +5897,7 @@ public final class MysqlxExpr {
     private com.mysql.cj.x.protobuf.MysqlxExpr.Identifier name_;
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -5909,7 +5909,7 @@ public final class MysqlxExpr {
     }
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -5921,7 +5921,7 @@ public final class MysqlxExpr {
     }
     /**
      * <pre>
-     ** identifier of function; at least name of it 
+     ** identifier of appl_main.function; at least name of it
      * </pre>
      *
      * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6442,7 +6442,7 @@ public final class MysqlxExpr {
           com.mysql.cj.x.protobuf.MysqlxExpr.Identifier, com.mysql.cj.x.protobuf.MysqlxExpr.Identifier.Builder, com.mysql.cj.x.protobuf.MysqlxExpr.IdentifierOrBuilder> nameBuilder_;
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6453,7 +6453,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6468,7 +6468,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6488,7 +6488,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6506,7 +6506,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6530,7 +6530,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6547,7 +6547,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6559,7 +6559,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>
@@ -6574,7 +6574,7 @@ public final class MysqlxExpr {
       }
       /**
        * <pre>
-       ** identifier of function; at least name of it 
+       ** identifier of appl_main.function; at least name of it
        * </pre>
        *
        * <code>required .Mysqlx.Expr.Identifier name = 1;</code>

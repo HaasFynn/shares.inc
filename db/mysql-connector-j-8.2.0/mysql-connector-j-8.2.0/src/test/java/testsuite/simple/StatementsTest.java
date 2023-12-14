@@ -185,7 +185,7 @@ public class StatementsTest extends BaseTestCase {
 
             assertTrue(autoIncKeyFromApi != -1 && autoIncKeyFromFunc != -1, "AutoIncrement keys were '0'");
             assertTrue(autoIncKeyFromApi == autoIncKeyFromFunc, "Key retrieved from API (" + autoIncKeyFromApi
-                    + ") does not match key retrieved from LAST_INSERT_ID() " + autoIncKeyFromFunc + ") function");
+                    + ") does not match key retrieved from LAST_INSERT_ID() " + autoIncKeyFromFunc + ") appl_main.function");
         } finally {
             if (this.rs != null) {
                 try {
@@ -1453,11 +1453,11 @@ public class StatementsTest extends BaseTestCase {
                                     "On row " + idx + ", column " + (k + 1));
                         } else if (differentTypes[idx][k] instanceof Float) {
                             assertEquals(((Float) differentTypes[idx][k]).floatValue(), this.rs.getFloat(k + 1), .1, "On row " + idx + ", column " + (k + 1));
-                        } else if (className.equals("java.lang.Byte")) {
+                        } else if (className.equals("java.appl_main.lang.Byte")) {
                             // special mapping in JDBC for ResultSet.getObject()
                             assertEquals(new Integer(((Byte) differentTypes[idx][k]).byteValue()), this.rs.getObject(k + 1),
                                     "On row " + idx + ", column " + (k + 1));
-                        } else if (className.equals("java.lang.Short")) {
+                        } else if (className.equals("java.appl_main.lang.Short")) {
                             // special mapping in JDBC for ResultSet.getObject()
                             assertEquals(new Integer(((Short) differentTypes[idx][k]).shortValue()), this.rs.getObject(k + 1),
                                     "On row " + idx + ", column " + (k + 1));

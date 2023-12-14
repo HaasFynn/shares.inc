@@ -159,7 +159,7 @@ public class MysqlParameterMetadata implements ParameterMetaData {
         if (this.returnSimpleMetadata) {
             checkBounds(arg0);
 
-            return "java.lang.String";
+            return "java.appl_main.lang.String";
         }
 
         checkAvailable();

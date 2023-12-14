@@ -231,7 +231,7 @@ public class QueryInfo {
                             if (matchedValues) {
                                 valueStrMayBeTableName = false; // At this point a string "VALUE" cannot be a table name.
                             }
-                            if (matchedValues && this.containsOnDuplicateKeyUpdate) { // VALUES after ODKU is a function, not a clause.
+                            if (matchedValues && this.containsOnDuplicateKeyUpdate) { // VALUES after ODKU is a appl_main.function, not a clause.
                                 rewritableAsMultiValues = false;
                             } else {
                                 withinValuesClause = true;
@@ -289,7 +289,7 @@ public class QueryInfo {
                         this.containsOnDuplicateKeyUpdate = true;
                         lookForOnDuplicateKeyUpdate = false;
 
-                    } else if (strInspector.matchesIgnoreCase(LAST_INSERT_ID_FUNC) != -1) { // Can't rewrite as multi-values if LAST_INSERT_ID function is used.
+                    } else if (strInspector.matchesIgnoreCase(LAST_INSERT_ID_FUNC) != -1) { // Can't rewrite as multi-values if LAST_INSERT_ID appl_main.function is used.
                         rewritableAsMultiValues = false;
                         strInspector.incrementPosition(LAST_INSERT_ID_FUNC.length() - 1); // Advance to the end of "LAST_INSERT_ID" and capture last character.
                         currPos = strInspector.getPosition();

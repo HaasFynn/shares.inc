@@ -40,7 +40,7 @@ public class MessagesTest {
         Exception ex = new Exception();
 
         assertEquals("The database URL cannot be null.", Messages.getString("ConnectionString.0"));
-        assertEquals("Malformed database URL, failed to parse the main URL sections.", Messages.getString("ConnectionString.1"));
+        assertEquals("Malformed database URL, failed to parse the appl_main.main URL sections.", Messages.getString("ConnectionString.1"));
         assertEquals("Malformed database URL, failed to parse the URL authority segment 'Test'.",
                 Messages.getString("ConnectionString.2", new Object[] { "Test" }));
         assertEquals("Failed to parse the host:port pair 'host:123'.", Messages.getString("ConnectionString.3", new Object[] { "host:123" }));
@@ -129,7 +129,7 @@ public class MessagesTest {
 
         assertEquals("Can't perform requested operation after getResult() has been called to write XML data", Messages.getString("MysqlSQLXML.1"));
 
-        assertEquals("Can't set IN parameter for return value of stored function call.", Messages.getString("PreparedStatement.63"));
+        assertEquals("Can't set IN parameter for return value of stored appl_main.function call.", Messages.getString("PreparedStatement.63"));
         assertEquals("'Test' is not a valid numeric or approximate numeric value", Messages.getString("PreparedStatement.64", new Object[] { "Test" }));
         assertEquals("Can't set scale of 'Test1' for DECIMAL argument 'Test2'", Messages.getString("PreparedStatement.65", new Object[] { "Test1", "Test2" }));
         assertEquals("No conversion from Test to Types.BOOLEAN possible.", Messages.getString("PreparedStatement.66", new Object[] { "Test" }));

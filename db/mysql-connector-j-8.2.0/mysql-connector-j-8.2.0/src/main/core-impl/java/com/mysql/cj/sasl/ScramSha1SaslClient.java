@@ -76,7 +76,7 @@ public class ScramSha1SaslClient extends ScramShaSaslClient {
     }
 
     /**
-     * The "H(str)" cryptographic hash function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>. This
+     * The "H(str)" cryptographic hash appl_main.function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>. This
      * implementation corresponds to SHA-1.
      *
      * @param str
@@ -119,7 +119,7 @@ public class ScramSha1SaslClient extends ScramShaSaslClient {
     }
 
     /**
-     * The "Hi(str, salt, i)" PBKDF2 function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
+     * The "Hi(str, salt, i)" PBKDF2 appl_main.function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
      * This implementation corresponds to 'PBKDF2WithHmacSHA1'.
      *
      * @param str

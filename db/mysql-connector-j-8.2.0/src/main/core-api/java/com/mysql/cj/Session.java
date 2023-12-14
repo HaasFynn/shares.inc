@@ -170,9 +170,9 @@ public interface Session {
      * @param message
      *            query message
      * @param rowFilter
-     *            row filter function
+     *            row filter appl_main.function
      * @param rowMapper
-     *            row map function
+     *            row map appl_main.function
      * @param collector
      *            result collector
      * @param <M>

@@ -1,0 +1,17 @@
+
+t
+java:S1104"YMake transactionID a static final constant or non-public and provide accessors if needed.(¢ßÐûúÿÿÿÿ
+f
+java:S1104"PMake date a static final constant or non-public and provide accessors if needed.(ùèæá
+o
+java:S1104	"TMake senderID a static final constant or non-public and provide accessors if needed.(ü›åæûÿÿÿÿ
+l
+java:S1104
+"VMake receiverID a static final constant or non-public and provide accessors if needed.(Êß§„
+q
+java:S1104"VMake Investment a static final constant or non-public and provide accessors if needed.(êÉßœýÿÿÿÿ
+h
+java:S1104"RMake amount a static final constant or non-public and provide accessors if needed.(¸®“Ø
+u
+java:S1104"ZMake transferAmount a static final constant or non-public and provide accessors if needed.(§Ú€Êýÿÿÿÿ
+o	java:S116"URename this field "Investment" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÉßœýÿÿÿÿ

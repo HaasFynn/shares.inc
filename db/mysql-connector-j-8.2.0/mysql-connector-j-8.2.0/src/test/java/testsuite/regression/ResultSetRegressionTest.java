@@ -1283,7 +1283,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
         this.stmt.executeUpdate("INSERT INTO testBug8868 VALUES (NOW(), 'abcd')");
         this.rs = this.stmt.executeQuery("SELECT DATE_FORMAT(field1,'%b-%e %l:%i%p') as fmtddate, field2 FROM testBug8868");
         this.rs.next();
-        assertEquals("java.lang.String", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.String", this.rs.getObject(1).getClass().getName());
     }
 
     /**
@@ -1376,10 +1376,10 @@ public class ResultSetRegressionTest extends BaseTestCase {
             this.rs = this.stmt.executeQuery(
                     "select DATE_FORMAT(field_12, '%Y-%m-%d') as date, count(*) as count from testBug9236 where field_10 = 0 and field_3 = 'FRL' and field_12 >= '2005-03-02 00:00:00' and field_12 <= '2005-03-17 00:00:00' group by date");
             rsmd = this.rs.getMetaData();
-            assertEquals("java.lang.String", rsmd.getColumnClassName(1));
+            assertEquals("java.appl_main.lang.String", rsmd.getColumnClassName(1));
             this.rs.next();
             asObject = this.rs.getObject(1);
-            assertEquals("java.lang.String", asObject.getClass().getName());
+            assertEquals("java.appl_main.lang.String", asObject.getClass().getName());
 
             this.rs.close();
 
@@ -1400,7 +1400,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for BUG#9437, IF() returns type of [B or java.lang.String depending on platform. Fixed earlier, but in here to catch if it ever regresses.
+     * Tests fix for BUG#9437, IF() returns type of [B or java.appl_main.lang.String depending on platform. Fixed earlier, but in here to catch if it ever regresses.
      *
      * @throws Exception
      */
@@ -1434,7 +1434,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
         Object object = this.rs.getObject(alias);
 
         if (object != null) {
-            assertEquals("java.lang.String", object.getClass().getName());
+            assertEquals("java.appl_main.lang.String", object.getClass().getName());
             assertEquals("en_US", object.toString());
         }
     }
@@ -1447,7 +1447,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
         this.stmt.executeUpdate("INSERT INTO " + tableName + " VALUES ('abc')");
         this.rs = this.stmt.executeQuery("SELECT sourceText FROM " + tableName);
         assertTrue(this.rs.next());
-        assertEquals("java.lang.String", this.rs.getString(1).getClass().getName());
+        assertEquals("java.appl_main.lang.String", this.rs.getString(1).getClass().getName());
         assertEquals("abc", this.rs.getString(1));
     }
 
@@ -1580,9 +1580,9 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
             storedProc.execute();
 
-            assertEquals("java.lang.Integer", storedProc.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", storedProc.getObject(1).getClass().getName());
 
-            assertEquals("java.lang.Long", storedProc.getObject(2).getClass().getName());
+            assertEquals("java.appl_main.lang.Long", storedProc.getObject(2).getClass().getName());
 
         } finally {
             if (storedProc != null) {
@@ -1861,22 +1861,22 @@ public class ResultSetRegressionTest extends BaseTestCase {
         assertEquals(Types.INTEGER, rsmd.getColumnType(1));
         assertEquals(Types.INTEGER, rsmd.getColumnType(2));
 
-        assertEquals("java.lang.Integer", rsmd.getColumnClassName(1));
-        assertEquals("java.lang.Integer", rsmd.getColumnClassName(2));
+        assertEquals("java.appl_main.lang.Integer", rsmd.getColumnClassName(1));
+        assertEquals("java.appl_main.lang.Integer", rsmd.getColumnClassName(2));
 
         assertEquals(-8388608, this.rs.getInt(1));
         assertEquals(0, this.rs.getInt(2));
 
-        assertEquals("java.lang.Integer", this.rs.getObject(1).getClass().getName());
-        assertEquals("java.lang.Integer", this.rs.getObject(2).getClass().getName());
+        assertEquals("java.appl_main.lang.Integer", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.Integer", this.rs.getObject(2).getClass().getName());
 
         assertTrue(this.rs.next());
 
         assertEquals(8388607, this.rs.getInt(1));
         assertEquals(16777215, this.rs.getInt(2));
 
-        assertEquals("java.lang.Integer", this.rs.getObject(1).getClass().getName());
-        assertEquals("java.lang.Integer", this.rs.getObject(2).getClass().getName());
+        assertEquals("java.appl_main.lang.Integer", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.Integer", this.rs.getObject(2).getClass().getName());
     }
 
     /*
@@ -2182,12 +2182,12 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
                     String columnClassName = rsmd.getColumnClassName(i + 1);
 
-                    boolean canBeUsedAsDate = !("java.lang.Boolean".equals(columnClassName) || "java.lang.Double".equals(columnClassName)
-                            || "java.lang.Float".equals(columnClassName) || "java.lang.Real".equals(columnClassName)
-                            || "java.math.BigDecimal".equals(columnClassName) || "java.lang.Long".equals(columnClassName)
-                            || "java.lang.Integer".equals(columnClassName) || "java.lang.Short".equals(columnClassName)
-                            || "java.lang.Byte".equals(columnClassName) || "java.math.BigInteger".equals(columnClassName)
-                            || "java.lang.String".equals(columnClassName));
+                    boolean canBeUsedAsDate = !("java.appl_main.lang.Boolean".equals(columnClassName) || "java.appl_main.lang.Double".equals(columnClassName)
+                            || "java.appl_main.lang.Float".equals(columnClassName) || "java.appl_main.lang.Real".equals(columnClassName)
+                            || "java.math.BigDecimal".equals(columnClassName) || "java.appl_main.lang.Long".equals(columnClassName)
+                            || "java.appl_main.lang.Integer".equals(columnClassName) || "java.appl_main.lang.Short".equals(columnClassName)
+                            || "java.appl_main.lang.Byte".equals(columnClassName) || "java.math.BigInteger".equals(columnClassName)
+                            || "java.appl_main.lang.String".equals(columnClassName));
 
                     if (canBeUsedAsDate) {
                         // time can't be converted to date
@@ -2905,7 +2905,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for BUG#25328 - BIT(> 1) is returned as java.lang.String from ResultSet.getObject() rather than byte[].
+     * Tests fix for BUG#25328 - BIT(> 1) is returned as java.appl_main.lang.String from ResultSet.getObject() rather than byte[].
      *
      * @throws Exception
      */
@@ -3413,7 +3413,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
         this.rs = noBlobConn.createStatement()
                 .executeQuery("SELECT concat(Class,petallength), COUNT(*) FROM `testBug24886` GROUP BY `concat(Class,petallength)`");
         this.rs.next();
-        assertEquals("java.lang.String", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.String", this.rs.getObject(1).getClass().getName());
 
         props.clear();
         props.setProperty(PropertyKey.sslMode.getKeyName(), SslMode.DISABLED.name());
@@ -3424,7 +3424,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
                 .executeQuery("SELECT concat(Class,petallength), COUNT(*) FROM `testBug24886` GROUP BY `concat(Class,petallength)`");
         this.rs.next();
 
-        assertEquals("java.lang.String", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.String", this.rs.getObject(1).getClass().getName());
     }
 
     /**
@@ -3681,7 +3681,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
         this.rs.next();
 
-        // From ResultSet.html#getInt(java.lang.String) in JDBC-4.0
+        // From ResultSet.html#getInt(java.appl_main.lang.String) in JDBC-4.0
         //
         // Retrieves the value of the designated column in the current row of
         // this ResultSet
@@ -3759,7 +3759,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
             this.rs = noBlobStmt.executeQuery("SELECT TRIM(1) AS Rslt");
             while (this.rs.next()) {
                 assertEquals("1", this.rs.getString("Rslt"));
-                assertEquals("java.lang.String", this.rs.getObject(1).getClass().getName());
+                assertEquals("java.appl_main.lang.String", this.rs.getObject(1).getClass().getName());
             }
         } finally {
             noBlobConn.close();
@@ -4157,7 +4157,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
             final String connectionId = this.rs.getString(1);
             this.rs.close();
 
-            System.out.println("testBug64204.main: PID is " + connectionId);
+            System.out.println("testBug64204.appl_main.main: PID is " + connectionId);
 
             ScheduledExecutorService es = Executors.newSingleThreadScheduledExecutor();
             es.schedule(() -> {
@@ -4193,7 +4193,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
                 int rows = 0;
                 int columnCount = this.rs.getMetaData().getColumnCount();
-                System.out.println("testBug64204.main: fetched result set, " + columnCount + " columns");
+                System.out.println("testBug64204.appl_main.main: fetched result set, " + columnCount + " columns");
 
                 long totalDataCount = 0;
                 while (this.rs.next()) {
@@ -4209,7 +4209,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
                     totalDataCount += rowSize;
                 }
 
-                System.out.println("testBug64204.main: character_sets total rows " + rows + ", data " + totalDataCount);
+                System.out.println("testBug64204.appl_main.main: character_sets total rows " + rows + ", data " + totalDataCount);
 
             } catch (SQLException se) {
                 assertEquals("70100", se.getSQLState(), "ER_QUERY_INTERRUPTED expected.");
@@ -4359,7 +4359,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for BUG#72000 - java.lang.ArrayIndexOutOfBoundsException on java.sql.ResultSet.getInt(String).
+     * Tests fix for BUG#72000 - java.appl_main.lang.ArrayIndexOutOfBoundsException on java.sql.ResultSet.getInt(String).
      *
      * @throws Exception
      */
@@ -5089,7 +5089,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
             assertEquals(BigInteger.valueOf(expectedNum), this.rs.getObject(2), testCase);
 
             final ResultSet testRs1 = this.rs;
-            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.lang.Short", () -> {
+            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.appl_main.lang.Short", () -> {
                 testRs1.getShort(3);
                 return null;
             });
@@ -5118,11 +5118,11 @@ public class ResultSetRegressionTest extends BaseTestCase {
             assertEquals(BigInteger.valueOf(expectedNum), this.rs.getObject(5), testCase);
 
             final ResultSet testRs2 = this.rs;
-            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.lang.Short", () -> {
+            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.appl_main.lang.Short", () -> {
                 testRs2.getShort(6);
                 return null;
             });
-            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.lang.Integer", () -> {
+            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.appl_main.lang.Integer", () -> {
                 testRs2.getInt(6);
                 return null;
             });
@@ -5150,11 +5150,11 @@ public class ResultSetRegressionTest extends BaseTestCase {
             assertEquals(BigInteger.valueOf(expectedNum), this.rs.getObject(8), testCase);
 
             final ResultSet testRs3 = this.rs;
-            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.lang.Short", () -> {
+            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.appl_main.lang.Short", () -> {
                 testRs3.getShort(9);
                 return null;
             });
-            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.lang.Integer", () -> {
+            assertThrows(SQLException.class, "Value '[01]+' is outside of valid range for type java.appl_main.lang.Integer", () -> {
                 testRs3.getInt(9);
                 return null;
             });
@@ -6934,7 +6934,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
                 // from blob(12)
                 assertEquals('1', rs1.getBytes(1)[0]);
                 if (jdbcCompliantTruncation) {
-                    assertThrows(SQLDataException.class, "Value '10' is outside of valid range for type java.lang.Byte", () -> {
+                    assertThrows(SQLDataException.class, "Value '10' is outside of valid range for type java.appl_main.lang.Byte", () -> {
                         rs1.getByte(1);
                         return null;
                     });
@@ -6966,7 +6966,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
                 // from c2 binary(12)
                 assertEquals('4', rs1.getBytes(3)[0]);
                 if (jdbcCompliantTruncation) {
-                    assertThrows(SQLDataException.class, "Value '48.+ is outside of valid range for type java.lang.Byte", () -> {
+                    assertThrows(SQLDataException.class, "Value '48.+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
                         rs1.getByte(3);
                         return null;
                     });
@@ -7002,7 +7002,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
                 // from c3 char(12) CHARACTER SET binary
                 assertEquals('2', rs1.getBytes(5)[0]);
                 if (jdbcCompliantTruncation) {
-                    assertThrows(SQLDataException.class, "Value '23.+ is outside of valid range for type java.lang.Byte", () -> {
+                    assertThrows(SQLDataException.class, "Value '23.+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
                         rs1.getByte(5);
                         return null;
                     });
@@ -7791,7 +7791,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
             PreparedStatement ps = con.prepareStatement("select * from testBug20391659 ", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             this.rs = ps.executeQuery();
             while (this.rs.next()) {
-                assertEquals('1', this.rs.getByte(1)); // was issuing java.lang.ArrayIndexOutOfBoundsException
+                assertEquals('1', this.rs.getByte(1)); // was issuing java.appl_main.lang.ArrayIndexOutOfBoundsException
                 assertEquals('0', this.rs.getByte(2));
             }
         } finally {
@@ -7823,7 +7823,7 @@ public class ResultSetRegressionTest extends BaseTestCase {
 
             this.rs = con.createStatement().executeQuery("select * from testBug20391631");
             while (this.rs.next()) {
-                assertTrue(this.rs.getBoolean(1)); // was issuing java.lang.ArrayIndexOutOfBoundsException
+                assertTrue(this.rs.getBoolean(1)); // was issuing java.appl_main.lang.ArrayIndexOutOfBoundsException
                 assertFalse(this.rs.getBoolean(2));
             }
         } finally {

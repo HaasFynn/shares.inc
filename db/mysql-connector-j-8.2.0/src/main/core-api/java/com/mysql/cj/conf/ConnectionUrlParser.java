@@ -155,7 +155,7 @@ public class ConnectionUrlParser implements DatabaseUrlContainer {
     }
 
     /**
-     * Splits the connection string in its main sections.
+     * Splits the connection string in its appl_main.main sections.
      */
     private void parseConnectionString() {
         String connString = this.baseConnectionString;

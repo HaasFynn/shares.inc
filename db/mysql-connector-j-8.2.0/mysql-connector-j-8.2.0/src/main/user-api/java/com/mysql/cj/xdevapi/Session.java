@@ -42,9 +42,9 @@ import java.util.List;
  * differences exist: setting the current schema and escaping names.
  * <p>
  * You cannot call {@link Session#getSchema(String)} or {@link Session#getDefaultSchema()} to obtain a {@link Schema} object against which you can
- * issue verbatin SQL statements. The Schema object does not feature a sql() function.
+ * issue verbatin SQL statements. The Schema object does not feature a sql() appl_main.function.
  * <p>
- * The sql() function is a method of the {@link Session} class. Use {@link Session#sql(String)} and the SQL command USE to change the current
+ * The sql() appl_main.function is a method of the {@link Session} class. Use {@link Session#sql(String)} and the SQL command USE to change the current
  * schema
  * <p>
  * Session session = SessionFactory.getSession("root:s3kr3t@localhost");<br>
@@ -58,14 +58,14 @@ import java.util.List;
  * String defaultSchema = session.getDefaultSchema().getName();<br>
  * session.sql("USE ?").bind(defaultSchema).execute();<br>
  * <p>
- * A quoting function exists to escape SQL names/identifiers. StringUtils.quoteIdentifier(String, boolean) will escape the identifier given in
+ * A quoting appl_main.function exists to escape SQL names/identifiers. StringUtils.quoteIdentifier(String, boolean) will escape the identifier given in
  * accordance to the settings of the current connection.
- * The escape function must not be used to escape values. Use the value bind syntax of {@link Session#sql(String)} instead.
+ * The escape appl_main.function must not be used to escape values. Use the value bind syntax of {@link Session#sql(String)} instead.
  * <p>
  * // use bind syntax for values<br>
  * session.sql("DROP TABLE IF EXISTS ?").bind(name).execute();<br>
  * <br>
- * // use escape function to quote names/identifier<br>
+ * // use escape appl_main.function to quote names/identifier<br>
  * var create = "CREATE TABLE ";<br>
  * create += StringUtils.quoteIdentifier(name, true);<br>
  * create += "(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT");<br>

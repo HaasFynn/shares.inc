@@ -57,7 +57,7 @@ public class FloatValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Float", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -65,7 +65,7 @@ public class FloatValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Float", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -73,7 +73,7 @@ public class FloatValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Float", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -93,11 +93,11 @@ public class FloatValueFactoryTest extends CommonAsserts {
         assertEquals(Float.valueOf(Float.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_FLOAT_VALUE.toBigInteger()));
         assertEquals(Float.valueOf(-1f), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Float.valueOf(-Float.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_NEGATIVE_FLOAT_VALUE.toBigInteger()));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromBigInteger(Constants.BIG_DECIMAL_MAX_FLOAT_VALUE.toBigInteger().add(Constants.BIG_INTEGER_ONE));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf
                     .createFromBigInteger(Constants.BIG_DECIMAL_MAX_NEGATIVE_FLOAT_VALUE.toBigInteger().subtract(Constants.BIG_INTEGER_ONE));
             return null;
@@ -110,11 +110,11 @@ public class FloatValueFactoryTest extends CommonAsserts {
         assertEquals(Float.valueOf(Float.MAX_VALUE), this.vf.createFromDouble(Float.MAX_VALUE));
         assertEquals(Float.valueOf(-1f), this.vf.createFromDouble(-1));
         assertEquals(Float.valueOf(-Float.MAX_VALUE), this.vf.createFromDouble(-Float.MAX_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromDouble((double) Float.MAX_VALUE + Float.MAX_VALUE);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromDouble((double) -Float.MAX_VALUE - Float.MAX_VALUE);
             return null;
         });
@@ -126,11 +126,11 @@ public class FloatValueFactoryTest extends CommonAsserts {
         assertEquals(Float.valueOf(Float.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_FLOAT_VALUE));
         assertEquals(Float.valueOf(-1f), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Float.valueOf(-Float.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_NEGATIVE_FLOAT_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_FLOAT_VALUE.add(Constants.BIG_DECIMAL_ONE));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Float", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Float", () -> {
             FloatValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf((double) -Float.MAX_VALUE - Float.MAX_VALUE));
             return null;
         });

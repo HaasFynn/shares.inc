@@ -1089,12 +1089,12 @@ public class DatabaseMetaDataUsingInfoSchema extends DatabaseMetaData {
     }
 
     /**
-     * Getter to DatabaseMetaData.function* constants.
+     * Getter to DatabaseMetaData.appl_main.function* constants.
      *
      * @param constant
      *            the constant id from DatabaseMetaData fields to return.
      *
-     * @return one of the java.sql.DatabaseMetaData#function* fields.
+     * @return one of the java.sql.DatabaseMetaData#appl_main.function* fields.
      */
     protected int getFunctionConstant(FunctionConstant constant) {
         switch (constant) {

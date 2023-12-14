@@ -59,7 +59,7 @@ public class ByteValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Byte", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -67,7 +67,7 @@ public class ByteValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Byte", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -75,7 +75,7 @@ public class ByteValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Byte", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -87,11 +87,11 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf(Byte.MAX_VALUE), this.vf.createFromLong(Byte.MAX_VALUE));
         assertEquals(Byte.valueOf((byte) -1), this.vf.createFromLong(-1));
         assertEquals(Byte.valueOf(Byte.MIN_VALUE), this.vf.createFromLong(Byte.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value '128' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '128' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromLong(Byte.MAX_VALUE + 1);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value '-129' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '-129' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromLong(Byte.MIN_VALUE - 1);
             return null;
         });
@@ -103,11 +103,11 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf(Byte.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MAX_BYTE_VALUE));
         assertEquals(Byte.valueOf((byte) -1), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Byte.valueOf(Byte.MIN_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MIN_BYTE_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf(Byte.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf(Byte.MIN_VALUE - 1));
             return null;
         });
@@ -119,11 +119,11 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf(Byte.MAX_VALUE), this.vf.createFromDouble(Byte.MAX_VALUE));
         assertEquals(Byte.valueOf((byte) -1), this.vf.createFromDouble(-1));
         assertEquals(Byte.valueOf(Byte.MIN_VALUE), this.vf.createFromDouble(Byte.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromDouble(Byte.MAX_VALUE + 0.5);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromDouble(Byte.MIN_VALUE - 0.5);
             return null;
         });
@@ -135,11 +135,11 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf(Byte.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_BYTE_VALUE));
         assertEquals(Byte.valueOf((byte) -1), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Byte.valueOf(Byte.MIN_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MIN_BYTE_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf(Byte.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf(Byte.MIN_VALUE - 1));
             return null;
         });
@@ -153,7 +153,7 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf((byte) 0), this.vf.createFromBytes("".getBytes(), 0, 0, f));
 
         this.pset.getBooleanProperty(PropertyKey.emptyStringsConvertToZero).setValue(false);
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBytes("".getBytes(), 0, 0, f);
             return null;
         });
@@ -176,19 +176,19 @@ public class ByteValueFactoryTest extends CommonAsserts {
         // jdbcCompliantTruncation=true by default
         assertEquals(Byte.valueOf((byte) '1'), this.vf.createFromBytes("1".getBytes(), 0, 1, f));
         assertEquals(Byte.valueOf((byte) 1), this.vf.createFromBytes(new byte[] { 1 }, 0, 1, f));
-        assertThrows(NumberOutOfRange.class, "Value '-1.0' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '-1.0' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBytes("-1.0".getBytes(), 0, 4, f);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value '1e0' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '1e0' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBytes("1e0".getBytes(), 0, 3, f);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value '123' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '123' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBytes("123".getBytes(), 0, 3, f);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value 'just a string' is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value 'just a string' is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBytes("just a string".getBytes(), 0, 13, f);
             return null;
         });
@@ -202,7 +202,7 @@ public class ByteValueFactoryTest extends CommonAsserts {
         assertEquals(Byte.valueOf((byte) 127), this.vf.createFromBit(new byte[] { (byte) 127 }, 0, 1));
         assertEquals(Byte.valueOf((byte) -128), this.vf.createFromBit(new byte[] { (byte) -128 }, 0, 1));
         assertEquals(Byte.valueOf((byte) 0xff), this.vf.createFromBit(new byte[] { (byte) 0xff }, 0, 1));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Byte", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Byte", () -> {
             ByteValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 200, (byte) 100 }, 0, 2);
             return null;
         });

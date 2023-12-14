@@ -459,7 +459,7 @@ public abstract class BaseTestCase {
     }
 
     /**
-     * Some tests build connections strings for internal usage but, in order for them to work, they may require some connection properties set in the main test
+     * Some tests build connections strings for internal usage but, in order for them to work, they may require some connection properties set in the appl_main.main test
      * suite URL. For example 'connectionTimeZone' is one of those properties.
      *
      * @param props

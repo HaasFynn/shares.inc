@@ -140,7 +140,7 @@ public class AsyncQueryTest extends BaseCollectionTestCase {
         CompletableFuture<DocResult> res = this.collection.find("NON_EXISTING_FUNCTION()").executeAsync();
         try {
             res.get();
-            fail("Should fail due to non existing function");
+            fail("Should fail due to non existing appl_main.function");
         } catch (ExecutionException ex) {
             Throwable cause = ex.getCause();
             assertEquals(XProtocolError.class, cause.getClass());

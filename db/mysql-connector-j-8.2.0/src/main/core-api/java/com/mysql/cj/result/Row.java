@@ -39,7 +39,7 @@ import com.mysql.cj.protocol.ValueDecoder;
 public interface Row extends ProtocolEntity {
 
     /**
-     * Retrieve a value for the given column. This is the main facility to access values from the Row
+     * Retrieve a value for the given column. This is the appl_main.main facility to access values from the Row
      * involving {@link ValueDecoder} and {@link ValueFactory} chain. Metadata <i>must</i> be set via
      * Row constructor or {@link #setMetadata(ColumnDefinition)} call before calling this method to allow
      * correct columnIndex boundaries check and data type recognition.

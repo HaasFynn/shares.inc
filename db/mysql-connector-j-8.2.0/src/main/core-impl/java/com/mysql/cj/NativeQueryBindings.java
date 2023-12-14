@@ -488,7 +488,7 @@ public class NativeQueryBindings implements QueryBindings {
     }
 
     /**
-     * Set the value of a parameter using an object; use the java.lang equivalent objects for integral values.
+     * Set the value of a parameter using an object; use the java.appl_main.lang equivalent objects for integral values.
      *
      * <P>
      * The given Java object will be converted to the targetMysqlType before being sent to the database.

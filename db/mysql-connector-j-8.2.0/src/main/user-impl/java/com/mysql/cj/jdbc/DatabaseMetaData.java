@@ -933,16 +933,16 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
     }
 
     /**
-     * Determines the COLUMN_TYPE information based on parameter type (IN, OUT or INOUT) or function return parameter.
+     * Determines the COLUMN_TYPE information based on parameter type (IN, OUT or INOUT) or appl_main.function return parameter.
      *
      * @param isOutParam
      *            Indicates whether it's an output parameter.
      * @param isInParam
      *            Indicates whether it's an input parameter.
      * @param isReturnParam
-     *            Indicates whether it's a function return parameter.
+     *            Indicates whether it's a appl_main.function return parameter.
      * @param forGetFunctionColumns
-     *            Indicates whether the column belong to a function. This argument is required for JDBC4, in which case
+     *            Indicates whether the column belong to a appl_main.function. This argument is required for JDBC4, in which case
      *            this method must be overridden to provide the correct functionality.
      *
      * @return The corresponding COLUMN_TYPE as in java.sql.getProcedureColumns API.
@@ -952,16 +952,16 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
     }
 
     /**
-     * Determines the COLUMN_TYPE information based on parameter type (IN, OUT or INOUT) or function return parameter.
+     * Determines the COLUMN_TYPE information based on parameter type (IN, OUT or INOUT) or appl_main.function return parameter.
      *
      * @param isOutParam
      *            Indicates whether it's an output parameter.
      * @param isInParam
      *            Indicates whether it's an input parameter.
      * @param isReturnParam
-     *            Indicates whether it's a function return parameter.
+     *            Indicates whether it's a appl_main.function return parameter.
      * @param forGetFunctionColumns
-     *            Indicates whether the column belong to a function.
+     *            Indicates whether the column belong to a appl_main.function.
      *
      * @return The corresponding COLUMN_TYPE as in java.sql.getProcedureColumns API.
      */
@@ -1736,7 +1736,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
      * keywords allowed after the RETURNS clause, or a label.
      *
      * @param procedureDefn
-     *            the function body containing the definition of the function
+     *            the appl_main.function body containing the definition of the appl_main.function
      * @param positionOfReturnKeyword
      *            the position of "RETURNS" in the definition
      * @return the end of the returns clause
@@ -4568,7 +4568,7 @@ public class DatabaseMetaData implements java.sql.DatabaseMetaData {
 
     @Override
     public boolean supportsConvert() throws SQLException {
-        // TODO MySQL has a CONVERT() function, is it irrelevant here?
+        // TODO MySQL has a CONVERT() appl_main.function, is it irrelevant here?
         return false;
     }
 

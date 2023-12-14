@@ -650,14 +650,14 @@ public class MetadataTest extends BaseTestCase {
     @Test
     private void checkBitOrBooleanType(boolean usingBit) throws SQLException {
         assertTrue(this.rs.next());
-        assertEquals("java.lang.Boolean", this.rs.getObject(1).getClass().getName());
+        assertEquals("java.appl_main.lang.Boolean", this.rs.getObject(1).getClass().getName());
         if (!usingBit) {
             assertEquals(Types.BOOLEAN, this.rs.getMetaData().getColumnType(1));
         } else {
             assertEquals(Types.BIT, this.rs.getMetaData().getColumnType(1));
         }
 
-        assertEquals("java.lang.Boolean", this.rs.getMetaData().getColumnClassName(1));
+        assertEquals("java.appl_main.lang.Boolean", this.rs.getMetaData().getColumnClassName(1));
     }
 
     @Test

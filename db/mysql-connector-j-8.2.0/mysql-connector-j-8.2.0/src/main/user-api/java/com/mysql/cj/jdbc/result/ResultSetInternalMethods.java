@@ -40,7 +40,7 @@ import com.mysql.cj.protocol.ResultsetRowsOwner;
 
 /**
  * This interface is intended to be used by implementors of statement interceptors so that implementors can create static or dynamic (via
- * java.lang.reflect.Proxy) proxy instances of ResultSets. It consists of methods outside of java.sql.Result that are used internally by other classes in the
+ * java.appl_main.lang.reflect.Proxy) proxy instances of ResultSets. It consists of methods outside of java.sql.Result that are used internally by other classes in the
  * driver.
  *
  * This interface, although public is <strong>not</strong> designed to be consumed publicly other than for the statement interceptor use case.

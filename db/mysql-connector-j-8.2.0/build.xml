@@ -511,8 +511,8 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
     <target name="-copy-files" depends="-copy-files-main, -copy-filter-license-build, -copy-no-crypto-build, -replace-license-headers-build" />
 
 
-    <!-- Copy main source files. -->
-    <target name="-copy-files-main" depends="-clean-build, -load-info-properties">
+    <!-- Copy shares.main_class source files. -->
+    <target name="-copy-files-shares.main_class" depends="-clean-build, -load-info-properties">
         <mkdir dir="${com.mysql.cj.build.dir.driver}" />
 
         <!-- Compute the RPM release field, adding status, extra and snapshot information if set. -->
@@ -889,7 +889,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
     </target>
 
 
-    <!-- Create archive files with package. -->
+    <!-- Create shares.archive files with package. -->
     <target name="-create-archives" depends="-create-portable-archives, -create-maven-archive" />
 
 
@@ -914,7 +914,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
 
 
     <!-- Create a Maven bundle containing all the files to upload into the central or local repository. -->
-    <target name="-create-maven-archive"
+    <target name="-create-maven-shares.archive"
             depends="-make-packages, -create-maven-archive-main, -create-maven-archive-sources, -create-maven-archive-javadoc, -set-archive-name"
             unless="${com.mysql.cj.dist.noMaven}">
         <delete file="${com.mysql.cj.dist.dir}/${com.mysql.cj.dist.archiveName}_maven.tar.gz" />
@@ -927,7 +927,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
 
 
     <!-- Get the jar and other mandatory files to include in the Maven bundle. -->
-    <target name="-create-maven-archive-main" unless="${com.mysql.cj.dist.noMaven}">
+    <target name="-create-maven-shares.archive-shares.main_class" unless="${com.mysql.cj.dist.noMaven}">
         <mkdir dir="${com.mysql.cj.dist.dir.maven}" />
 
         <copy file="${com.mysql.cj.build.dir.driver}/${com.mysql.cj.build.driver.fullName}.jar" todir="${com.mysql.cj.dist.dir.maven}" />
@@ -941,7 +941,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
 
 
     <!-- Create a sources jar to include in the Maven bundle. -->
-    <target name="-create-maven-archive-sources" depends="-create-maven-archive-sources-check" unless="${com.mysql.cj.dist.noMavenSources}">
+    <target name="-create-maven-shares.archive-sources" depends="-create-maven-archive-sources-check" unless="${com.mysql.cj.dist.noMavenSources}">
         <jar jarfile="${com.mysql.cj.dist.dir.maven}/${com.mysql.cj.build.driver.fullName}-sources.jar"
              basedir="${com.mysql.cj.build.dir.driver}"
              includes="**/*.java, **/*.properties*, INFO_BIN, INFO_SRC, LICENSE, README"
@@ -955,7 +955,7 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
 
 
     <!-- Create a javadoc jar to include in the Maven bundle. -->
-    <target name="-create-maven-archive-javadoc" unless="${com.mysql.cj.dist.noMaven}">
+    <target name="-create-maven-shares.archive-javadoc" unless="${com.mysql.cj.dist.noMaven}">
         <delete dir="${com.mysql.cj.build.dir.javadoc}" />
         <mkdir dir="${com.mysql.cj.build.dir.javadoc}" />
 
@@ -1000,8 +1000,8 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
     </target>
 
 
-    <!-- Check if the maven archive should include sources. -->
-    <target name="-create-maven-archive-sources-check">
+    <!-- Check if the maven shares.archive should include sources. -->
+    <target name="-create-maven-shares.archive-sources-check">
         <condition property="com.mysql.cj.dist.noMavenSources">
             <or>
                 <istrue value="${com.mysql.cj.dist.noMaven}" />
@@ -1011,9 +1011,9 @@ See also com.mysql.cj.conf.PropertyDefinitions.SYSP_* variables for other test o
     </target>
 
 
-    <!-- Compute the archive name, including a reference to whether the package contains sources or not, if not expected by default (GPL package should contain
+    <!-- Compute the shares.archive name, including a reference to whether the package contains sources or not, if not expected by default (GPL package should contain
          sources, commercial package shouldn't). -->
-    <target name="-set-archive-name" unless="com.mysql.cj.dist.archiveName">
+    <target name="-set-shares.archive-name" unless="com.mysql.cj.dist.archiveName">
         <condition property="com.mysql.cj.dist.archiveSourcesSuffix" value="_src">
             <and>
                 <not>

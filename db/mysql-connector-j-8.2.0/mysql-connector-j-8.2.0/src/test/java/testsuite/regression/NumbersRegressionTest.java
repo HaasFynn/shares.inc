@@ -94,14 +94,14 @@ public class NumbersRegressionTest extends BaseTestCase {
 
         this.rs.next();
 
-        assertTrue(rsmd.getColumnClassName(1).equals("java.lang.Float"));
-        assertTrue(this.rs.getObject(1).getClass().getName().equals("java.lang.Float"));
+        assertTrue(rsmd.getColumnClassName(1).equals("java.appl_main.lang.Float"));
+        assertTrue(this.rs.getObject(1).getClass().getName().equals("java.appl_main.lang.Float"));
 
-        assertTrue(rsmd.getColumnClassName(2).equals("java.lang.Double"));
-        assertTrue(this.rs.getObject(2).getClass().getName().equals("java.lang.Double"));
+        assertTrue(rsmd.getColumnClassName(2).equals("java.appl_main.lang.Double"));
+        assertTrue(this.rs.getObject(2).getClass().getName().equals("java.appl_main.lang.Double"));
 
-        assertTrue(rsmd.getColumnClassName(3).equals("java.lang.Double"));
-        assertTrue(this.rs.getObject(3).getClass().getName().equals("java.lang.Double"));
+        assertTrue(rsmd.getColumnClassName(3).equals("java.appl_main.lang.Double"));
+        assertTrue(this.rs.getObject(3).getClass().getName().equals("java.appl_main.lang.Double"));
     }
 
     /**

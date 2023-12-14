@@ -55,7 +55,7 @@ public class BooleanValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Boolean", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Boolean", () -> {
             BooleanValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -63,7 +63,7 @@ public class BooleanValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Boolean", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Boolean", () -> {
             BooleanValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -71,7 +71,7 @@ public class BooleanValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Boolean", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Boolean", () -> {
             BooleanValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });

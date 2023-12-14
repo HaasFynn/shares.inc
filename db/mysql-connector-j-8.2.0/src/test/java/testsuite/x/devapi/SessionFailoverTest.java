@@ -250,7 +250,7 @@ public class SessionFailoverTest extends DevApiBaseTestCase {
                 1000, 2000);
 
         // TS8_1 Create a session to a Server using valid credentials passing the "connect-timeout" and set it to a valid value.
-        // Call the function SLEEP() and set it to 10 seconds once the connections is established. No timeout exception/error must be displayed.
+        // Call the appl_main.function SLEEP() and set it to 10 seconds once the connections is established. No timeout exception/error must be displayed.
         long begin = System.currentTimeMillis();
         Session sess = this.fact.getSession(buildConnectionString(this.testsHost) + "?" + makeParam(PropertyKey.xdevapiConnectTimeout, "3000", true));
         sess.sql("SELECT SLEEP(11)").execute();

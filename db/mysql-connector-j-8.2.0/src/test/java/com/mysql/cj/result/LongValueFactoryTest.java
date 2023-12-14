@@ -58,7 +58,7 @@ public class LongValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Long", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -66,7 +66,7 @@ public class LongValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Long", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -74,7 +74,7 @@ public class LongValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Long", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -94,11 +94,11 @@ public class LongValueFactoryTest extends CommonAsserts {
         assertEquals(Long.valueOf(Long.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MAX_LONG_VALUE));
         assertEquals(Long.valueOf(-1), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Long.valueOf(Long.MIN_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MIN_LONG_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromBigInteger(Constants.BIG_INTEGER_MAX_LONG_VALUE.add(BigInteger.ONE));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromBigInteger(Constants.BIG_INTEGER_MIN_LONG_VALUE.subtract(BigInteger.ONE));
             return null;
         });
@@ -110,11 +110,11 @@ public class LongValueFactoryTest extends CommonAsserts {
         assertEquals(Long.valueOf(Long.MAX_VALUE), this.vf.createFromDouble(Long.MAX_VALUE));
         assertEquals(Long.valueOf(-1), this.vf.createFromDouble(-1));
         assertEquals(Long.valueOf(Long.MIN_VALUE), this.vf.createFromDouble(Long.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromDouble(Constants.BIG_INTEGER_MAX_LONG_VALUE.add(Constants.BIG_INTEGER_MAX_INTEGER_VALUE).doubleValue());
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf.createFromDouble(Constants.BIG_INTEGER_MIN_LONG_VALUE.add(Constants.BIG_INTEGER_MIN_INTEGER_VALUE).doubleValue());
             return null;
         });
@@ -126,12 +126,12 @@ public class LongValueFactoryTest extends CommonAsserts {
         assertEquals(Long.valueOf(Long.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_LONG_VALUE));
         assertEquals(Long.valueOf(-1), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Long.valueOf(Long.MIN_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MIN_LONG_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf
                     .createFromBigDecimal(BigDecimal.valueOf(Constants.BIG_INTEGER_MAX_LONG_VALUE.add(Constants.BIG_INTEGER_MAX_INTEGER_VALUE).doubleValue()));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Long", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Long", () -> {
             LongValueFactoryTest.this.vf
                     .createFromBigDecimal(BigDecimal.valueOf(Constants.BIG_INTEGER_MIN_LONG_VALUE.add(Constants.BIG_INTEGER_MIN_INTEGER_VALUE).doubleValue()));
             return null;

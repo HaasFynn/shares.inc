@@ -12026,7 +12026,7 @@ public class StatementRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Test fix for Bug#84365 (33425867), INSERT..VALUE with VALUES function lead to a StringIndexOutOfBoundsException.
+     * Test fix for Bug#84365 (33425867), INSERT..VALUE with VALUES appl_main.function lead to a StringIndexOutOfBoundsException.
      *
      * @throws Exception
      */
@@ -12160,7 +12160,7 @@ public class StatementRegressionTest extends BaseTestCase {
 
         Connection testConn = getConnectionWithProps(props);
         long threadId = ((JdbcConnection) testConn).getId();
-        Supplier<Integer> sessionCount = () -> { // Counts sessions created since the main connection.
+        Supplier<Integer> sessionCount = () -> { // Counts sessions created since the appl_main.main connection.
             try (Statement testStmt = testConn.createStatement()) {
                 int c = 0;
                 testStmt.execute("FLUSH STATUS");

@@ -151,7 +151,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_WRONG_PARAMETERS_TO_PROCEDURE = 1108; //SQLSTATE: HY000 Message: Incorrect parameters to procedure '%s'
     public final static int ER_UNKNOWN_TABLE = 1109; //SQLSTATE: 42S02 Message: Unknown table '%s' in %s
     public final static int ER_FIELD_SPECIFIED_TWICE = 1110; //SQLSTATE: 42000 Message: Column '%s' specified twice
-    public final static int ER_INVALID_GROUP_FUNC_USE = 1111; //SQLSTATE: HY000 Message: Invalid use of group function
+    public final static int ER_INVALID_GROUP_FUNC_USE = 1111; //SQLSTATE: HY000 Message: Invalid use of group appl_main.function
     public final static int ER_UNSUPPORTED_EXTENSION = 1112; //SQLSTATE: 42000 Message: Table '%s' uses an extension that doesn't exist in this MySQL version
     public final static int ER_TABLE_MUST_HAVE_COLUMNS = 1113; //SQLSTATE: 42000 Message: A table must have at least 1 column
     public final static int ER_RECORD_FILE_FULL = 1114; //SQLSTATE: HY000 Message: The table '%s' is full
@@ -162,8 +162,8 @@ public final class MysqlErrorNumbers {
     public final static int ER_STACK_OVERRUN = 1119; //SQLSTATE: HY000 Message: Thread stack overrun: Used: %ld of a %ld stack. Use 'mysqld --thread_stack=#' to specify a bigger stack if needed
     public final static int ER_WRONG_OUTER_JOIN = 1120; //SQLSTATE: 42000 Message: Cross dependency found in OUTER JOIN; examine your ON conditions
     public final static int ER_NULL_COLUMN_IN_INDEX = 1121; //SQLSTATE: 42000 Message: Table handler doesn't support NULL in given index. Please change column '%s' to be NOT NULL or use another handler
-    public final static int ER_CANT_FIND_UDF = 1122; //SQLSTATE: HY000 Message: Can't load function '%s'
-    public final static int ER_CANT_INITIALIZE_UDF = 1123; //SQLSTATE: HY000 Message: Can't initialize function '%s'; %s
+    public final static int ER_CANT_FIND_UDF = 1122; //SQLSTATE: HY000 Message: Can't load appl_main.function '%s'
+    public final static int ER_CANT_INITIALIZE_UDF = 1123; //SQLSTATE: HY000 Message: Can't initialize appl_main.function '%s'; %s
     public final static int ER_UDF_NO_PATHS = 1124; //SQLSTATE: HY000 Message: No paths allowed for shared library
     public final static int ER_UDF_EXISTS = 1125; //SQLSTATE: HY000 Message: Function '%s' already exists
     public final static int ER_CANT_OPEN_LIBRARY = 1126; //SQLSTATE: HY000 Message: Can't open shared library '%s' (errno: %d %s)
@@ -412,7 +412,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_SP_DUP_CURS = 1333; //SQLSTATE: 42000 Message: Duplicate cursor: %s
     public final static int ER_SP_CANT_ALTER = 1334; //SQLSTATE: HY000 Message: Failed to ALTER %s %s
     public final static int ER_SP_SUBSELECT_NYI = 1335; //SQLSTATE: 0A000 Message: Subquery value not supported
-    public final static int ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG = 1336; //SQLSTATE: 0A000 Message: %s is not allowed in stored function or trigger
+    public final static int ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG = 1336; //SQLSTATE: 0A000 Message: %s is not allowed in stored appl_main.function or trigger
     public final static int ER_SP_VARCOND_AFTER_CURSHNDLR = 1337; //SQLSTATE: 42000 Message: Variable or condition declaration after cursor or handler declaration
     public final static int ER_SP_CURSOR_AFTER_HANDLER = 1338; //SQLSTATE: 42000 Message: Cursor declaration after handler declaration
     public final static int ER_SP_CASE_NOT_FOUND = 1339; //SQLSTATE: 20000 Message: Case not found for CASE statement
@@ -432,7 +432,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_VIEW_WRONG_LIST = 1353; //SQLSTATE: HY000 Message: View's SELECT and view's field list have different column counts
     public final static int ER_WARN_VIEW_MERGE = 1354; //SQLSTATE: HY000 Message: View merge algorithm can't be used here for now (assumed undefined algorithm)
     public final static int ER_WARN_VIEW_WITHOUT_KEY = 1355; //SQLSTATE: HY000 Message: View being updated does not have complete key of underlying table in it
-    public final static int ER_VIEW_INVALID = 1356; //SQLSTATE: HY000 Message: View '%s.%s' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+    public final static int ER_VIEW_INVALID = 1356; //SQLSTATE: HY000 Message: View '%s.%s' references invalid table(s) or column(s) or appl_main.function(s) or definer/invoker of view lack rights to use them
     public final static int ER_SP_NO_DROP_SP = 1357; //SQLSTATE: HY000 Message: Can't drop or alter a %s from within another stored routine
     public final static int ER_SP_GOTO_IN_HNDLR = 1358; //SQLSTATE: HY000 Message: GOTO is not allowed in a stored procedure handler
     public final static int ER_TRG_ALREADY_EXISTS = 1359; //SQLSTATE: HY000 Message: Trigger already exists
@@ -487,18 +487,18 @@ public final class MysqlErrorNumbers {
     public final static int ER_STARTUP = 1408; //SQLSTATE: HY000 Message: %s: ready for connections. Version: '%s' socket: '%s' port: %d %s
     public final static int ER_LOAD_FROM_FIXED_SIZE_ROWS_TO_VAR = 1409; //SQLSTATE: HY000 Message: Can't load value from file with fixed size rows to variable
     public final static int ER_CANT_CREATE_USER_WITH_GRANT = 1410; //SQLSTATE: 42000 Message: You are not allowed to create a user with GRANT
-    public final static int ER_WRONG_VALUE_FOR_TYPE = 1411; //SQLSTATE: HY000 Message: Incorrect %s value: '%s' for function %s
+    public final static int ER_WRONG_VALUE_FOR_TYPE = 1411; //SQLSTATE: HY000 Message: Incorrect %s value: '%s' for appl_main.function %s
     public final static int ER_TABLE_DEF_CHANGED = 1412; //SQLSTATE: HY000 Message: Table definition has changed, please retry transaction
     public final static int ER_SP_DUP_HANDLER = 1413; //SQLSTATE: 42000 Message: Duplicate handler declared in the same block
     public final static int ER_SP_NOT_VAR_ARG = 1414; //SQLSTATE: 42000 Message: OUT or INOUT argument %d for routine %s is not a variable or NEW pseudo-variable in BEFORE trigger
     public final static int ER_SP_NO_RETSET = 1415; //SQLSTATE: 0A000 Message: Not allowed to return a result set from a %s
     public final static int ER_CANT_CREATE_GEOMETRY_OBJECT = 1416; //SQLSTATE: 22003 Message: Cannot get geometry object from data you send to the GEOMETRY field
     public final static int ER_FAILED_ROUTINE_BREAK_BINLOG = 1417; //SQLSTATE: HY000 Message: A routine failed and has neither NO SQL nor READS SQL DATA in its declaration and binary logging is enabled; if non-transactional tables were updated, the binary log will miss their changes
-    public final static int ER_BINLOG_UNSAFE_ROUTINE = 1418; //SQLSTATE: HY000 Message: This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
+    public final static int ER_BINLOG_UNSAFE_ROUTINE = 1418; //SQLSTATE: HY000 Message: This appl_main.function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
     public final static int ER_BINLOG_CREATE_ROUTINE_NEED_SUPER = 1419; //SQLSTATE: HY000 Message: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
     public final static int ER_EXEC_STMT_WITH_OPEN_CURSOR = 1420; //SQLSTATE: HY000 Message: You can't execute a prepared statement which has an open cursor associated with it. Reset the statement to re-execute it.
     public final static int ER_STMT_HAS_NO_OPEN_CURSOR = 1421; //SQLSTATE: HY000 Message: The statement (%lu) has no open cursor.
-    public final static int ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG = 1422; //SQLSTATE: HY000 Message: Explicit or implicit commit is not allowed in stored function or trigger.
+    public final static int ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG = 1422; //SQLSTATE: HY000 Message: Explicit or implicit commit is not allowed in stored appl_main.function or trigger.
     public final static int ER_NO_DEFAULT_FOR_VIEW_FIELD = 1423; //SQLSTATE: HY000 Message: Field of view '%s.%s' underlying table doesn't have a default value
     public final static int ER_SP_NO_RECURSION = 1424; //SQLSTATE: HY000 Message: Recursive stored functions and triggers are not allowed.
     public final static int ER_TOO_BIG_SCALE = 1425; //SQLSTATE: 42000 Message: Too big scale %d specified for column '%s'. Maximum is %lu.
@@ -517,11 +517,11 @@ public final class MysqlErrorNumbers {
     public final static int ER_WARN_CANT_DROP_DEFAULT_KEYCACHE = 1438; //SQLSTATE: HY000 Message: Cannot drop default keycache
     public final static int ER_TOO_BIG_DISPLAYWIDTH = 1439; //SQLSTATE: 42000 Message: Display width out of range for column '%s' (max = %lu)
     public final static int ER_XAER_DUPID = 1440; //SQLSTATE: XAE08 Message: XAER_DUPID: The XID already exists
-    public final static int ER_DATETIME_FUNCTION_OVERFLOW = 1441; //SQLSTATE: 22008 Message: Datetime function: %s field overflow
-    public final static int ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG = 1442; //SQLSTATE: HY000 Message: Can't update table '%s' in stored function/trigger because it is already used by statement which invoked this stored function/trigger.
+    public final static int ER_DATETIME_FUNCTION_OVERFLOW = 1441; //SQLSTATE: 22008 Message: Datetime appl_main.function: %s field overflow
+    public final static int ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG = 1442; //SQLSTATE: HY000 Message: Can't update table '%s' in stored appl_main.function/trigger because it is already used by statement which invoked this stored appl_main.function/trigger.
     public final static int ER_VIEW_PREVENT_UPDATE = 1443; //SQLSTATE: HY000 Message: The definition of table '%s' prevents operation %s on table '%s'.
     public final static int ER_PS_NO_RECURSION = 1444; //SQLSTATE: HY000 Message: The prepared statement contains a stored routine call that refers to that same statement. It's not allowed to execute a prepared statement in such a recursive manner
-    public final static int ER_SP_CANT_SET_AUTOCOMMIT = 1445; //SQLSTATE: HY000 Message: Not allowed to set autocommit from a stored function or trigger
+    public final static int ER_SP_CANT_SET_AUTOCOMMIT = 1445; //SQLSTATE: HY000 Message: Not allowed to set autocommit from a stored appl_main.function or trigger
     public final static int ER_MALFORMED_DEFINER = 1446; //SQLSTATE: HY000 Message: Definer is not fully qualified
     public final static int ER_VIEW_FRM_NO_USER = 1447; //SQLSTATE: HY000 Message: View '%s'.'%s' has no definer information (old table format). Current user is used as definer. Please recreate the view!
     public final static int ER_VIEW_OTHER_USER = 1448; //SQLSTATE: HY000 Message: You need the SUPER privilege for creation view with '%s'@'%s' definer
@@ -562,15 +562,15 @@ public final class MysqlErrorNumbers {
     public final static int ER_PARTITION_SUBPART_MIX_ERROR = 1483; //SQLSTATE: HY000 Message: Must define subpartitions on all partitions if on one partition
     public final static int ER_PARTITION_WRONG_NO_PART_ERROR = 1484; //SQLSTATE: HY000 Message: Wrong number of partitions defined, mismatch with previous setting
     public final static int ER_PARTITION_WRONG_NO_SUBPART_ERROR = 1485; //SQLSTATE: HY000 Message: Wrong number of subpartitions defined, mismatch with previous setting
-    public final static int ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR = 1486; //SQLSTATE: HY000 Message: Constant, random or timezone-dependent expressions in (sub)partitioning function are not allowed
+    public final static int ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR = 1486; //SQLSTATE: HY000 Message: Constant, random or timezone-dependent expressions in (sub)partitioning appl_main.function are not allowed
     public final static int ER_NO_CONST_EXPR_IN_RANGE_OR_LIST_ERROR = 1487; //SQLSTATE: HY000 Message: Expression in RANGE/LIST VALUES must be constant
-    public final static int ER_FIELD_NOT_FOUND_PART_ERROR = 1488; //SQLSTATE: HY000 Message: Field in list of fields for partition function not found in table
+    public final static int ER_FIELD_NOT_FOUND_PART_ERROR = 1488; //SQLSTATE: HY000 Message: Field in list of fields for partition appl_main.function not found in table
     public final static int ER_LIST_OF_FIELDS_ONLY_IN_HASH_ERROR = 1489; //SQLSTATE: HY000 Message: List of fields is only allowed in KEY partitions
     public final static int ER_INCONSISTENT_PARTITION_INFO_ERROR = 1490; //SQLSTATE: HY000 Message: The partition info in the frm file is not consistent with what can be written into the frm file
-    public final static int ER_PARTITION_FUNC_NOT_ALLOWED_ERROR = 1491; //SQLSTATE: HY000 Message: The %s function returns the wrong type
+    public final static int ER_PARTITION_FUNC_NOT_ALLOWED_ERROR = 1491; //SQLSTATE: HY000 Message: The %s appl_main.function returns the wrong type
     public final static int ER_PARTITIONS_MUST_BE_DEFINED_ERROR = 1492; //SQLSTATE: HY000 Message: For %s partitions each partition must be defined
     public final static int ER_RANGE_NOT_INCREASING_ERROR = 1493; //SQLSTATE: HY000 Message: VALUES LESS THAN value must be strictly increasing for each partition
-    public final static int ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR = 1494; //SQLSTATE: HY000 Message: VALUES value must be of same type as partition function
+    public final static int ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR = 1494; //SQLSTATE: HY000 Message: VALUES value must be of same type as partition appl_main.function
     public final static int ER_MULTIPLE_DEF_CONST_IN_LIST_PART_ERROR = 1495; //SQLSTATE: HY000 Message: Multiple definition of same constant in list partitioning
     public final static int ER_PARTITION_ENTRY_ERROR = 1496; //SQLSTATE: HY000 Message: Partitioning can not be used stand-alone in query
     public final static int ER_MIX_HANDLER_ERROR = 1497; //SQLSTATE: HY000 Message: The mix of handlers in the partitions is not allowed in this version of MySQL
@@ -578,8 +578,8 @@ public final class MysqlErrorNumbers {
     public final static int ER_TOO_MANY_PARTITIONS_ERROR = 1499; //SQLSTATE: HY000 Message: Too many partitions (including subpartitions) were defined
     public final static int ER_SUBPARTITION_ERROR = 1500; //SQLSTATE: HY000 Message: It is only possible to mix RANGE/LIST partitioning with HASH/KEY partitioning for subpartitioning
     public final static int ER_CANT_CREATE_HANDLER_FILE = 1501; //SQLSTATE: HY000 Message: Failed to create specific handler file
-    public final static int ER_BLOB_FIELD_IN_PART_FUNC_ERROR = 1502; //SQLSTATE: HY000 Message: A BLOB field is not allowed in partition function
-    public final static int ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF = 1503; //SQLSTATE: HY000 Message: A %s must include all columns in the table's partitioning function
+    public final static int ER_BLOB_FIELD_IN_PART_FUNC_ERROR = 1502; //SQLSTATE: HY000 Message: A BLOB field is not allowed in partition appl_main.function
+    public final static int ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF = 1503; //SQLSTATE: HY000 Message: A %s must include all columns in the table's partitioning appl_main.function
     public final static int ER_NO_PARTS_ERROR = 1504; //SQLSTATE: HY000 Message: Number of %s = 0 is not an allowed value
     public final static int ER_PARTITION_MGMT_ON_NONPARTITIONED = 1505; //SQLSTATE: HY000 Message: Partition management on a not partitioned table is not possible
     public final static int ER_FOREIGN_KEY_ON_PARTITIONED = 1506; //SQLSTATE: HY000 Message: Foreign key clause is not yet supported in conjunction with partitioning
@@ -597,7 +597,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_NO_BINLOG_ERROR = 1518; //SQLSTATE: HY000 Message: It is not allowed to shut off binlog on this command
     public final static int ER_CONSECUTIVE_REORG_PARTITIONS = 1519; //SQLSTATE: HY000 Message: When reorganizing a set of partitions they must be in consecutive order
     public final static int ER_REORG_OUTSIDE_RANGE = 1520; //SQLSTATE: HY000 Message: Reorganize of range partitions cannot change total ranges except for last partition where it can extend the range
-    public final static int ER_PARTITION_FUNCTION_FAILURE = 1521; //SQLSTATE: HY000 Message: Partition function not supported in this version for this handler
+    public final static int ER_PARTITION_FUNCTION_FAILURE = 1521; //SQLSTATE: HY000 Message: Partition appl_main.function not supported in this version for this handler
     public final static int ER_PART_STATE_ERROR = 1522; //SQLSTATE: HY000 Message: Partition state cannot be defined from CREATE/ALTER TABLE
     public final static int ER_LIMITED_PART_RANGE = 1523; //SQLSTATE: HY000 Message: The %s handler only supports 32 bit integers in VALUES
     public final static int ER_PLUGIN_IS_NOT_LOADED = 1524; //SQLSTATE: HY000 Message: Plugin '%s' is not loaded
@@ -636,11 +636,11 @@ public final class MysqlErrorNumbers {
     public final static int ER_FOREIGN_DUPLICATE_KEY = 1557; //SQLSTATE: 23000 Message: Upholding foreign key constraints for table '%s', entry '%s', key %d would lead to a duplicate entry
     public final static int ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE = 1558; //SQLSTATE: HY000 Message: Column count of mysql.%s is wrong. Expected %d, found %d. Created with MySQL %d, now running %d. Please use mysql_upgrade to fix this error.
     public final static int ER_TEMP_TABLE_PREVENTS_SWITCH_OUT_OF_RBR = 1559; //SQLSTATE: HY000 Message: Cannot switch out of the row-based binary log format when the session has open temporary tables
-    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1560; //SQLSTATE: HY000 Message: Cannot change the binary logging format inside a stored function or trigger
+    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1560; //SQLSTATE: HY000 Message: Cannot change the binary logging format inside a stored appl_main.function or trigger
     public final static int ER_NDB_CANT_SWITCH_BINLOG_FORMAT = 1561; //SQLSTATE: HY000 Message: The NDB cluster engine does not support changing the binlog format on the fly yet
     public final static int ER_PARTITION_NO_TEMPORARY = 1562; //SQLSTATE: HY000 Message: Cannot create temporary table with partitions
-    public final static int ER_PARTITION_CONST_DOMAIN_ERROR = 1563; //SQLSTATE: HY000 Message: Partition constant is out of partition function domain
-    public final static int ER_PARTITION_FUNCTION_IS_NOT_ALLOWED = 1564; //SQLSTATE: HY000 Message: This partition function is not allowed
+    public final static int ER_PARTITION_CONST_DOMAIN_ERROR = 1563; //SQLSTATE: HY000 Message: Partition constant is out of partition appl_main.function domain
+    public final static int ER_PARTITION_FUNCTION_IS_NOT_ALLOWED = 1564; //SQLSTATE: HY000 Message: This partition appl_main.function is not allowed
     public final static int ER_DDL_LOG_ERROR = 1565; //SQLSTATE: HY000 Message: Error in DDL log
     public final static int ER_NULL_IN_VALUES_LESS_THAN = 1566; //SQLSTATE: HY000 Message: Not allowed to use NULL value in VALUES LESS THAN
     public final static int ER_WRONG_PARTITION_NAME = 1567; //SQLSTATE: HY000 Message: Incorrect partition name
@@ -657,11 +657,11 @@ public final class MysqlErrorNumbers {
     public final static int ER_ONLY_INTEGERS_ALLOWED = 1578; //SQLSTATE: HY000 Message: Only integers allowed as number here
     public final static int ER_UNSUPORTED_LOG_ENGINE = 1579; //SQLSTATE: HY000 Message: This storage engine cannot be used for log tables"
     public final static int ER_BAD_LOG_STATEMENT = 1580; //SQLSTATE: HY000 Message: You cannot '%s' a log table if logging is enabled
-    public final static int ER_CANT_RENAME_LOG_TABLE = 1581; //SQLSTATE: HY000 Message: Cannot rename '%s'. When logging enabled, rename to/from log table must rename two tables: the log table to an archive table and another table back to '%s'
-    public final static int ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT = 1582; //SQLSTATE: 42000 Message: Incorrect parameter count in the call to native function '%s'
-    public final static int ER_WRONG_PARAMETERS_TO_NATIVE_FCT = 1583; //SQLSTATE: 42000 Message: Incorrect parameters in the call to native function '%s'
-    public final static int ER_WRONG_PARAMETERS_TO_STORED_FCT = 1584; //SQLSTATE: 42000 Message: Incorrect parameters in the call to stored function '%s'
-    public final static int ER_NATIVE_FCT_NAME_COLLISION = 1585; //SQLSTATE: HY000 Message: This function '%s' has the same name as a native function
+    public final static int ER_CANT_RENAME_LOG_TABLE = 1581; //SQLSTATE: HY000 Message: Cannot rename '%s'. When logging enabled, rename to/from log table must rename two tables: the log table to an appl_main.archive table and another table back to '%s'
+    public final static int ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT = 1582; //SQLSTATE: 42000 Message: Incorrect parameter count in the call to native appl_main.function '%s'
+    public final static int ER_WRONG_PARAMETERS_TO_NATIVE_FCT = 1583; //SQLSTATE: 42000 Message: Incorrect parameters in the call to native appl_main.function '%s'
+    public final static int ER_WRONG_PARAMETERS_TO_STORED_FCT = 1584; //SQLSTATE: 42000 Message: Incorrect parameters in the call to stored appl_main.function '%s'
+    public final static int ER_NATIVE_FCT_NAME_COLLISION = 1585; //SQLSTATE: HY000 Message: This appl_main.function '%s' has the same name as a native appl_main.function
     public final static int ER_DUP_ENTRY_WITH_KEY_NAME = 1586; //SQLSTATE: 23000 Message: Duplicate entry '%s' for key '%s'
     public final static int ER_BINLOG_PURGE_EMFILE = 1587; //SQLSTATE: HY000 Message: Too many files opened, please execute the command again
     public final static int ER_EVENT_CANNOT_CREATE_IN_THE_PAST = 1588; //SQLSTATE: HY000 Message: Event execution time is in the past and ON COMPLETION NOT PRESERVE is set. The event was dropped immediately after creation.
@@ -722,7 +722,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_SLAVE_HEARTBEAT_VALUE_OUT_OF_RANGE = 1624;
     public final static int ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE = 1624; //SQLSTATE: HY000 Message: The requested value for the heartbeat period is either negative or exceeds the maximum allowed (%s seconds).
     public final static int ER_NDB_REPLICATION_SCHEMA_ERROR = 1625; //SQLSTATE: HY000 Message: Bad schema for mysql.ndb_replication table. Message: %s
-    public final static int ER_CONFLICT_FN_PARSE_ERROR = 1626; //SQLSTATE: HY000 Message: Error in parsing conflict function. Message: %s
+    public final static int ER_CONFLICT_FN_PARSE_ERROR = 1626; //SQLSTATE: HY000 Message: Error in parsing conflict appl_main.function. Message: %s
     public final static int ER_EXCEPTIONS_WRITE_ERROR = 1627; //SQLSTATE: HY000 Message: Write to exceptions table failed. Message: %s"
     public final static int ER_TOO_LONG_TABLE_COMMENT = 1628; //SQLSTATE: HY000 Message: Comment for table '%s' is too long (max = %lu)
     public final static int ER_TOO_LONG_FIELD_COMMENT = 1629; //SQLSTATE: HY000 Message: Comment for field '%s' is too long (max = %lu)
@@ -769,10 +769,10 @@ public final class MysqlErrorNumbers {
     public final static int ER_BINLOG_UNSAFE_LIMIT = 1668; //SQLSTATE: HY000 Message: The statement is unsafe because it uses a LIMIT clause. This is unsafe because the set of rows included cannot be predicted.
     public final static int ER_BINLOG_UNSAFE_INSERT_DELAYED = 1669; //SQLSTATE: HY000 Message: The statement is unsafe because it uses INSERT DELAYED. This is unsafe because the times when rows are inserted cannot be predicted.
     public final static int ER_BINLOG_UNSAFE_SYSTEM_TABLE = 1670; //SQLSTATE: HY000 Message: The statement is unsafe because it uses the general log, slow query log, or performance_schema table(s). This is unsafe because system tables may differ on replicas.
-    public final static int ER_BINLOG_UNSAFE_AUTOINC_COLUMNS = 1671; //SQLSTATE: HY000 Message: Statement is unsafe because it invokes a trigger or a stored function that inserts into an AUTO_INCREMENT column. Inserted values cannot be logged correctly.
+    public final static int ER_BINLOG_UNSAFE_AUTOINC_COLUMNS = 1671; //SQLSTATE: HY000 Message: Statement is unsafe because it invokes a trigger or a stored appl_main.function that inserts into an AUTO_INCREMENT column. Inserted values cannot be logged correctly.
     public final static int ER_BINLOG_UNSAFE_UDF = 1672; //SQLSTATE: HY000 Message: Statement is unsafe because it uses a UDF which may not return the same value on the replica.
     public final static int ER_BINLOG_UNSAFE_SYSTEM_VARIABLE = 1673; //SQLSTATE: HY000 Message: Statement is unsafe because it uses a system variable that may have a different value on the replica.
-    public final static int ER_BINLOG_UNSAFE_SYSTEM_FUNCTION = 1674; //SQLSTATE: HY000 Message: Statement is unsafe because it uses a system function that may return a different value on the replica.
+    public final static int ER_BINLOG_UNSAFE_SYSTEM_FUNCTION = 1674; //SQLSTATE: HY000 Message: Statement is unsafe because it uses a system appl_main.function that may return a different value on the replica.
     public final static int ER_BINLOG_UNSAFE_NONTRANS_AFTER_TRANS = 1675; //SQLSTATE: HY000 Message: Statement is unsafe because it accesses a non-transactional table after accessing a transactional table within the same transaction.
     public final static int ER_MESSAGE_AND_STATEMENT = 1676; //SQLSTATE: HY000 Message: %s Statement: %s
     @Deprecated
@@ -788,7 +788,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_WRONG_PERFSCHEMA_USAGE = 1683; //SQLSTATE: HY000 Message: Invalid performance_schema usage.
     public final static int ER_WARN_I_S_SKIPPED_TABLE = 1684; //SQLSTATE: HY000 Message: Table '%s'.'%s' was skipped since its definition is being modified by concurrent DDL statement
     public final static int ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1685; //SQLSTATE: HY000 Message: Cannot modify @@session.binlog_direct_non_transactional_updates inside a transaction
-    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1686; //SQLSTATE: HY000 Message: Cannot change the binlog direct flag inside a stored function or trigger
+    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1686; //SQLSTATE: HY000 Message: Cannot change the binlog direct flag inside a stored appl_main.function or trigger
     public final static int ER_SPATIAL_MUST_HAVE_GEOM_COL = 1687; //SQLSTATE: 42000 Message: A SPATIAL index may only contain a geometrical type column
     public final static int ER_TOO_LONG_INDEX_COMMENT = 1688; //SQLSTATE: HY000 Message: Comment for index '%s' is too long (max = %lu)
     public final static int ER_LOCK_ABORTED = 1689; //SQLSTATE: HY000 Message: Wait on a lock was aborted due to a pending exclusive lock
@@ -797,7 +797,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_BINLOG_UNSAFE_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE = 1692; //SQLSTATE: HY000 Message: Mixing self-logging and non-self-logging engines in a statement is unsafe.
     public final static int ER_BINLOG_UNSAFE_MIXED_STATEMENT = 1693; //SQLSTATE: HY000 Message: Statement accesses nontransactional table as well as transactional or temporary table, and writes to any of them.
     public final static int ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1694; //SQLSTATE: HY000 Message: Cannot modify @@session.sql_log_bin inside a transaction
-    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1695; //SQLSTATE: HY000 Message: Cannot change the sql_log_bin inside a stored function or trigger
+    public final static int ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1695; //SQLSTATE: HY000 Message: Cannot change the sql_log_bin inside a stored appl_main.function or trigger
     public final static int ER_FAILED_READ_FROM_PAR_FILE = 1696; //SQLSTATE: HY000 Message: Failed to read from the .par file
     public final static int ER_VALUES_IS_NOT_INT_TYPE_ERROR = 1697; //SQLSTATE: HY000 Message: VALUES value for partition '%s' must have type INT
     public final static int ER_ACCESS_DENIED_NO_PASSWORD_ERROR = 1698; //SQLSTATE: 28000 Message: Access denied for user '%s'@'%s'
@@ -882,7 +882,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_VARIABLE_NOT_SETTABLE_IN_TRANSACTION = 1766; //SQLSTATE: HY000 Message: The system variable %s cannot be set when there is an ongoing transaction.
     public final static int ER_GTID_NEXT_IS_NOT_IN_GTID_NEXT_LIST = 1767; //SQLSTATE: HY000 Message: The system variable @@SESSION.GTID_NEXT has the value %s, which is not listed in @@SESSION.GTID_NEXT_LIST.
     public final static int ER_CANT_CHANGE_GTID_NEXT_IN_TRANSACTION_WHEN_GTID_NEXT_LIST_IS_NULL = 1768; //SQLSTATE: HY000 Message: When @@SESSION.GTID_NEXT_LIST == NULL, the system variable @@SESSION.GTID_NEXT cannot change inside a transaction.
-    public final static int ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION = 1769; //SQLSTATE: HY000 Message: The statement 'SET %s' cannot invoke a stored function.
+    public final static int ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION = 1769; //SQLSTATE: HY000 Message: The statement 'SET %s' cannot invoke a stored appl_main.function.
     public final static int ER_GTID_NEXT_CANT_BE_AUTOMATIC_IF_GTID_NEXT_LIST_IS_NON_NULL = 1770; //SQLSTATE: HY000 Message: The system variable @@SESSION.GTID_NEXT cannot be 'AUTOMATIC' when @@SESSION.GTID_NEXT_LIST is non-NULL.
     public final static int ER_SKIPPING_LOGGED_TRANSACTION = 1771; //SQLSTATE: HY000 Message: Skipping transaction %s because it has already been executed and logged.
     public final static int ER_MALFORMED_GTID_SET_SPECIFICATION = 1772; //SQLSTATE: HY000 Message: Malformed GTID set specification '%s'.
@@ -950,7 +950,7 @@ public final class MysqlErrorNumbers {
     public final static int ER_FK_CANNOT_OPEN_PARENT = 1824; //SQLSTATE: HY000 Message: Failed to open the referenced table '%s'
     public final static int ER_FK_INCORRECT_OPTION = 1825; //SQLSTATE: HY000 Message: Failed to add the foreign key constraint on table '%s'. Incorrect options in FOREIGN KEY constraint '%s'
     public final static int ER_FK_DUP_NAME = 1826; //SQLSTATE: HY000 Message: Duplicate foreign key constraint name '%s'
-    public final static int ER_PASSWORD_FORMAT = 1827; //SQLSTATE: HY000 Message: The password hash doesn't have the expected format. Check if the correct password algorithm is being used with the PASSWORD() function.
+    public final static int ER_PASSWORD_FORMAT = 1827; //SQLSTATE: HY000 Message: The password hash doesn't have the expected format. Check if the correct password algorithm is being used with the PASSWORD() appl_main.function.
     public final static int ER_FK_COLUMN_CANNOT_DROP = 1828; //SQLSTATE: HY000 Message: Cannot drop column '%s': needed in a foreign key constraint '%s'
     public final static int ER_FK_COLUMN_CANNOT_DROP_CHILD = 1829; //SQLSTATE: HY000 Message: Cannot drop column '%s': needed in a foreign key constraint '%s' of table '%s'
     public final static int ER_FK_COLUMN_NOT_NULL = 1830; //SQLSTATE: HY000 Message: Column '%s' cannot be NOT NULL: needed in a foreign key constraint '%s' SET NULL

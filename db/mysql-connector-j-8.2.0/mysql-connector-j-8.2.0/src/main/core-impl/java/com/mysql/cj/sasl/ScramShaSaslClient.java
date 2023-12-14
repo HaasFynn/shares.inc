@@ -292,7 +292,7 @@ public abstract class ScramShaSaslClient implements SaslClient {
     }
 
     /**
-     * The "H(str)" cryptographic hash function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
+     * The "H(str)" cryptographic hash appl_main.function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
      *
      * @param str
      *            the string to hash.
@@ -314,7 +314,7 @@ public abstract class ScramShaSaslClient implements SaslClient {
     abstract byte[] hmac(byte[] key, byte[] str);
 
     /**
-     * The "Hi(str, salt, i)" PBKDF2 function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
+     * The "Hi(str, salt, i)" PBKDF2 appl_main.function as described in <a href="https://tools.ietf.org/html/rfc5802#section-2.2">RFC 5802, Section 2.2</a>.
      *
      * @param str
      *            the string value to use as the internal HMAC key.

@@ -84,7 +84,7 @@ public interface ModifyStatement extends Statement<ModifyStatement, Result> {
     ModifyStatement unset(String... docPath);
 
     /**
-     * Takes in a patch object and applies it on all documents matching the modify() filter, using the JSON_MERGE_PATCH() function.
+     * Takes in a patch object and applies it on all documents matching the modify() filter, using the JSON_MERGE_PATCH() appl_main.function.
      * Please note that {@link DbDoc} does not support expressions as a field values, please use {@link #patch(String)} method if you need
      * such functionality.
      *
@@ -95,7 +95,7 @@ public interface ModifyStatement extends Statement<ModifyStatement, Result> {
     ModifyStatement patch(DbDoc document);
 
     /**
-     * Takes in a document patch and applies it on all documents matching the modify() filter, using the JSON_MERGE_PATCH() function.
+     * Takes in a document patch and applies it on all documents matching the modify() filter, using the JSON_MERGE_PATCH() appl_main.function.
      * A document patch is similar to a JSON object, with the key difference that document field values can be nested expressions in addition to literal values.
      * <br>
      * Example:<br>

@@ -101,7 +101,7 @@ public class AddMethods {
 
             } else if (def instanceof EnumPropertyDefinition<?>) {
                 addGetter(clazz, pname, String.class.getName(), "getEnumRuntimeProperty");
-                addSetter(clazz, pname, "java.lang.String", "setEnumRuntimeProperty");
+                addSetter(clazz, pname, "java.appl_main.lang.String", "setEnumRuntimeProperty");
 
             } else {
                 throw new Exception("Unknown " + def.getName() + " property type.");

@@ -189,7 +189,7 @@ public interface Collection extends DatabaseObject {
     DbDoc newDoc();
 
     /**
-     * Takes in a document object that will replace the matching document. If no matches are found, the function returns normally with no changes being made.
+     * Takes in a document object that will replace the matching document. If no matches are found, the appl_main.function returns normally with no changes being made.
      *
      * @param id
      *            the document id of the document to be replaced
@@ -201,7 +201,7 @@ public interface Collection extends DatabaseObject {
     Result replaceOne(String id, DbDoc doc);
 
     /**
-     * Takes in a document object that will replace the matching document. If no matches are found, the function returns normally with no changes being made.
+     * Takes in a document object that will replace the matching document. If no matches are found, the appl_main.function returns normally with no changes being made.
      *
      * @param id
      *            the document id of the document to be replaced

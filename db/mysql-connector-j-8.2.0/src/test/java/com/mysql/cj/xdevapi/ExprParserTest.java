@@ -188,7 +188,7 @@ public class ExprParserTest {
         checkParseRoundTrip("a like b escape c", "a like b ESCAPE c");
         checkParseRoundTrip("a not like b escape c", "a not like b ESCAPE c");
         checkParseRoundTrip("(1 + 3) in (3, 4, 5)", "(1 + 3) in(3, 4, 5)");
-        checkParseRoundTrip("`a crazy \"function\"``'name'`(1 + 3) in (3, 4, 5)", "`a crazy \"function\"``'name'`((1 + 3)) in(3, 4, 5)");
+        checkParseRoundTrip("`a crazy \"appl_main.function\"``'name'`(1 + 3) in (3, 4, 5)", "`a crazy \"appl_main.function\"``'name'`((1 + 3)) in(3, 4, 5)");
         checkParseRoundTrip("a->$.b", "a->$.b");
         checkParseRoundTrip("a->'$.b'", "a->$.b");
         checkParseRoundTrip("a->$.\"bcd\"", "a->$.bcd");
@@ -217,7 +217,7 @@ public class ExprParserTest {
         checkParseRoundTrip("colId + .1e-3", "(colId + 1.0E-4)");
         // TODO: this isn't serialized correctly by the unparser
         //checkParseRoundTrip("a@.b[0][0].c**.d.\"a weird\\\"key name\"", "");
-        // star function
+        // star appl_main.function
         checkParseRoundTrip("*", "*");
         checkParseRoundTrip("count(*) + 1", "(count(*) + 1)");
         checkParseRoundTrip("foo\u003Dbar", "(foo == bar)");

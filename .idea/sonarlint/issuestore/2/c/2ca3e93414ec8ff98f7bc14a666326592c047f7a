@@ -1,0 +1,29 @@
+
+h	java:S112¿"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8›´„¼Æ1
+
+java:S1192Ì"\Define a constant instead of duplicating this literal "Geben sie ihr Passwort ein:" 3 times.(ßú¤ÿÿÿÿÿ8œ´„¼Æ1
+‚
+java:S1192B"`Define a constant instead of duplicating this literal "Diese Funktion existiert nicht!" 3 times.(ı¬“ÿÿÿÿÿ8œ´„¼Æ1
+z
+java:S1192Ü"WDefine a constant instead of duplicating this literal "Ã„nderung erfolgreich!" 3 times.(²ô†øøÿÿÿÿ8œ´„¼Æ1
+L
+java:S1121·".Extract the assignment out of this expression.(»âª 8œ´„¼Æ1
+i
+java:S1301¡"KReplace this "switch" statement by "if" statements to increase readability.(¸æŞ™8´„¼Æ1
+ˆ
+java:S4165É"eRemove this useless assignment; "newUser" already holds the assigned value along all execution paths.(°åïûøÿÿÿÿ8Á´„¼Æ1
+L	java:S106B"+Replace this use of System.out by a logger.(ı¬“ÿÿÿÿÿ8Í´„¼Æ1
+]	java:S125R"<This block of commented-out lines of code should be removed.(Éƒêôşÿÿÿÿ8Ï´„¼Æ1
+M	java:S106“"+Replace this use of System.out by a logger.(ĞòÊÕüÿÿÿÿ8Ö´„¼Æ1
+?	java:S131¡""Add a default case to this switch.(¸æŞ™8×´„¼Æ1
+M	java:S106Ü"+Replace this use of System.out by a logger.(²ô†øøÿÿÿÿ8İ´„¼Æ1
+H	java:S106ê"+Replace this use of System.out by a logger.(©¾šè8Ş´„¼Æ1
+M	java:S106ø"+Replace this use of System.out by a logger.(²ô†øøÿÿÿÿ8à´„¼Æ1
+M	java:S106ˆ"+Replace this use of System.out by a logger.(²ô†øøÿÿÿÿ8á´„¼Æ1
+T
+java:S2696 "6Make the enclosing method "static" or remove this set.(ºÜÆô8ã´„¼Æ1
+H	java:S106§"+Replace this use of System.out by a logger.(…Û—8ä´„¼Æ1
+Y
+java:S2696¸"6Make the enclosing method "static" or remove this set.(¸‘ıºøÿÿÿÿ8æ´„¼Æ1
+M	java:S106»"+Replace this use of System.out by a logger.(í©çÅùÿÿÿÿ8æ´„¼Æ1
+M	java:S106Ì"+Replace this use of System.out by a logger.(÷´·ûÿÿÿÿ8é´„¼Æ1

@@ -58,7 +58,7 @@ public class ShortValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromDate() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.lang.Short", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from DATE to java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromDate(new InternalDate(2006, 1, 1));
             return null;
         });
@@ -66,7 +66,7 @@ public class ShortValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTime() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.lang.Short", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIME to java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromTime(new InternalTime(12, 0, 0, 0, 0));
             return null;
         });
@@ -74,7 +74,7 @@ public class ShortValueFactoryTest extends CommonAsserts {
 
     @Test
     public void testCreateFromTimestamp() {
-        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.lang.Short", () -> {
+        assertThrows(DataConversionException.class, "Unsupported conversion from TIMESTAMP to java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromTimestamp(new InternalTimestamp(2006, 1, 1, 12, 0, 0, 0, 0));
             return null;
         });
@@ -86,11 +86,11 @@ public class ShortValueFactoryTest extends CommonAsserts {
         assertEquals(Short.valueOf(Short.MAX_VALUE), this.vf.createFromLong(Short.MAX_VALUE));
         assertEquals(Short.valueOf((short) -1), this.vf.createFromLong(-1));
         assertEquals(Short.valueOf(Short.MIN_VALUE), this.vf.createFromLong(Short.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value '32768' is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '32768' is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromLong(Short.MAX_VALUE + 1);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value '-32769' is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value '-32769' is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromLong(Short.MIN_VALUE - 1);
             return null;
         });
@@ -102,11 +102,11 @@ public class ShortValueFactoryTest extends CommonAsserts {
         assertEquals(Short.valueOf(Short.MAX_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MAX_SHORT_VALUE));
         assertEquals(Short.valueOf((short) -1), this.vf.createFromBigInteger(Constants.BIG_INTEGER_NEGATIVE_ONE));
         assertEquals(Short.valueOf(Short.MIN_VALUE), this.vf.createFromBigInteger(Constants.BIG_INTEGER_MIN_SHORT_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf(Short.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBigInteger(BigInteger.valueOf(Short.MIN_VALUE - 1));
             return null;
         });
@@ -118,11 +118,11 @@ public class ShortValueFactoryTest extends CommonAsserts {
         assertEquals(Short.valueOf(Short.MAX_VALUE), this.vf.createFromDouble(Short.MAX_VALUE));
         assertEquals(Short.valueOf((short) -1), this.vf.createFromDouble(-1));
         assertEquals(Short.valueOf(Short.MIN_VALUE), this.vf.createFromDouble(Short.MIN_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromDouble(Short.MAX_VALUE + 0.5);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromDouble(Short.MIN_VALUE - 0.5);
             return null;
         });
@@ -134,11 +134,11 @@ public class ShortValueFactoryTest extends CommonAsserts {
         assertEquals(Short.valueOf(Short.MAX_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MAX_SHORT_VALUE));
         assertEquals(Short.valueOf((short) -1), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_NEGATIVE_ONE));
         assertEquals(Short.valueOf(Short.MIN_VALUE), this.vf.createFromBigDecimal(Constants.BIG_DECIMAL_MIN_SHORT_VALUE));
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf(Short.MAX_VALUE + 1));
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBigDecimal(BigDecimal.valueOf(Short.MIN_VALUE - 1));
             return null;
         });
@@ -187,28 +187,28 @@ public class ShortValueFactoryTest extends CommonAsserts {
         assertEquals(Short.valueOf((short) 32767), this.vf.createFromBit(new byte[] { (byte) 0x7f, (byte) 0xff }, 0, 2));
         assertEquals(Short.valueOf((short) 0xffffL), this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff }, 0, 2));
 
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 3);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 4);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 5);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf.createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 6);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf
                     .createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 7);
             return null;
         });
-        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.lang.Short", () -> {
+        assertThrows(NumberOutOfRange.class, "Value .+ is outside of valid range for type java.appl_main.lang.Short", () -> {
             ShortValueFactoryTest.this.vf
                     .createFromBit(new byte[] { (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff }, 0, 8);
             return null;

@@ -247,7 +247,7 @@ public class ExprParser {
     }
 
     /**
-     * Helper function to match integer or floating point numbers. This function should be called when the position is on the first character of the number (a
+     * Helper appl_main.function to match integer or floating point numbers. This appl_main.function should be called when the position is on the first character of the number (a
      * digit or '.').
      *
      * @param i
@@ -555,7 +555,7 @@ public class ExprParser {
     }
 
     /**
-     * Parse a paren-enclosed expression list. This is used for function params or IN params.
+     * Parse a paren-enclosed expression list. This is used for appl_main.function params or IN params.
      *
      * @return a List of expressions
      */
@@ -574,9 +574,9 @@ public class ExprParser {
     }
 
     /**
-     * Parse a function call of the form: IDENTIFIER PAREN_EXPR_LIST.
+     * Parse a appl_main.function call of the form: IDENTIFIER PAREN_EXPR_LIST.
      *
-     * @return an Expr representing the function call.
+     * @return an Expr representing the appl_main.function call.
      */
     Expr functionCall() {
         Identifier id = identifier();
@@ -592,7 +592,7 @@ public class ExprParser {
     }
 
     /**
-     * Parse an identifier for a function call: [schema.]name
+     * Parse an identifier for a appl_main.function call: [schema.]name
      *
      * @return {@link Identifier}
      */
@@ -775,7 +775,7 @@ public class ExprParser {
      *
      * @return {@link Expr}
      */
-    Expr atomicExpr() { // constant, identifier, variable, function call, etc
+    Expr atomicExpr() { // constant, identifier, variable, appl_main.function call, etc
         if (this.tokenPos >= this.tokens.size()) {
             throw new WrongArgumentException("No more tokens when expecting one at token position " + this.tokenPos);
         }
@@ -906,7 +906,7 @@ public class ExprParser {
                 return starOperator();
             case IDENT:
                 this.tokenPos--; // stay on the identifier
-                // check for function call which may be: func(...) or schema.func(...)
+                // check for appl_main.function call which may be: func(...) or schema.func(...)
                 if (nextTokenTypeEquals(TokenType.LPAREN) || posTokenTypeEquals(this.tokenPos + 1, TokenType.DOT)
                         && posTokenTypeEquals(this.tokenPos + 2, TokenType.IDENT) && posTokenTypeEquals(this.tokenPos + 3, TokenType.LPAREN)) {
                     return functionCall();

@@ -67,11 +67,11 @@ import com.mysql.cj.jdbc.Driver;
  * observing, which is why you are most likely filing a bug report).
  *
  * <p>
- * Finally, create a 'main' method that creates a new instance of your testcase, and calls the 'run' method:
+ * Finally, create a 'appl_main.main' method that creates a new instance of your testcase, and calls the 'run' method:
  *
  * <pre>
  *
- * public static void main(String[] args) throws Exception {
+ * public static void appl_main.main(String[] args) throws Exception {
  *     new MyBugReport().run();
  * }
  * </pre>

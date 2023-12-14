@@ -5035,7 +5035,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
             c2.close();
 
         } catch (SQLException e) {
-            assertFalse(e.getCause() instanceof java.lang.ArrayIndexOutOfBoundsException, "e.getCause() instanceof java.lang.ArrayIndexOutOfBoundsException");
+            assertFalse(e.getCause() instanceof java.lang.ArrayIndexOutOfBoundsException, "e.getCause() instanceof java.appl_main.lang.ArrayIndexOutOfBoundsException");
 
             props.setProperty(PropertyKey.characterEncoding.getKeyName(), "UTF-8");
             props.setProperty(PropertyKey.USER.getKeyName(), "\u30C6\u30B9\u30C8\u30C6\u30B9\u30C8");
@@ -7269,7 +7269,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
      * Fabric's server group. In that operation we, like Fabric connections, use an {@link ExceptionInterceptor} that ends up changing the
      * {@link ReplicationConnection}s from a given {@link ReplicationConnectionGroup}.
      *
-     * This test is unable to cover the failing scenario since the fix in the main code was also reproduced here, with the addition of the {@link ReentrantLock}
+     * This test is unable to cover the failing scenario since the fix in the appl_main.main code was also reproduced here, with the addition of the {@link ReentrantLock}
      * {@code singleSynchWorkerMonitor} in the {@link TestBug21934573ExceptionInterceptor} the same way as in {@code ErrorReportingExceptionInterceptor}. The
      * way to reproduce it and observe the deadlock happening is by setting the connection property {@code __useReplConnGroupLocks__} to {@code False}.
      *
@@ -9320,7 +9320,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         testConn1.setNetworkTimeout(Executors.newSingleThreadExecutor(), 1000);
         testConn1.close();
 
-        // Main use case simulation: this simulates the above by capturing an eventual exeption in the main thread. This is where this test would actually fail.
+        // Main use case simulation: this simulates the above by capturing an eventual exeption in the appl_main.main thread. This is where this test would actually fail.
         // This part is repeated several times to increase the chance of hitting the reported bug.
         for (int i = 0; i < 25; i++) {
             final ExecutorService execService = Executors.newSingleThreadExecutor();
@@ -10923,7 +10923,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
         assertEquals("Failed loading the class 'DummyClass'.", t.getCause().getMessage());
         testConn2.close();
 
-        // clientInfoProvider=java.lang.Object
+        // clientInfoProvider=java.appl_main.lang.Object
         props.setProperty(PropertyKey.clientInfoProvider.getKeyName(), Object.class.getName());
         Connection testConn3 = getConnectionWithProps(props);
         t = assertThrows(SQLClientInfoException.class, () -> {
@@ -10931,7 +10931,7 @@ public class ConnectionRegressionTest extends BaseTestCase {
             return null;
         });
         assertEquals(SQLException.class, t.getCause().getClass());
-        assertEquals("The class 'java.lang.Object' does not implement the interface 'com.mysql.cj.jdbc.ClientInfoProvider'.", t.getCause().getMessage());
+        assertEquals("The class 'java.appl_main.lang.Object' does not implement the interface 'com.mysql.cj.jdbc.ClientInfoProvider'.", t.getCause().getMessage());
         testConn3.close();
     }
 

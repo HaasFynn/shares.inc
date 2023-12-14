@@ -326,7 +326,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
     }
 
     @Test
-    // these are important to test the "operator" (BETWEEN/REGEXP/etc) to function representation in the protocol
+    // these are important to test the "operator" (BETWEEN/REGEXP/etc) to appl_main.function representation in the protocol
     public void testIlriExpressions() {
         if (!mysqlVersionMeetsMinimum(ServerVersion.parseVersion("8.0.5"))) {
             this.collection.add("{\"_id\": \"1\", \"a\":\"some text with 5432\", \"b\":\"100\", \"c\":true}").execute(); // Requires manual _id.
@@ -1627,13 +1627,13 @@ public class CollectionFindTest extends BaseCollectionTestCase {
         assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires operator that produce a JSON value\\.",
                 () -> tabNew.select("doc->$._id as _id").where("(1+2) in doc->$.ARR").execute());
 
-        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires function that produce a JSON value\\.",
+        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires appl_main.function that produce a JSON value\\.",
                 () -> this.collection.find("concat('name', '6') in ['name1', 'name2', 'name6']").execute());
 
         assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires operator that produce a JSON value\\.",
                 () -> this.collection.find("(1+2) in $.ARR").execute());
 
-        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires function that produce a JSON value\\.",
+        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) CONT_IN expression requires appl_main.function that produce a JSON value\\.",
                 () -> this.collection.find("concat('name', '6') in $.ARR1").execute());
     }
 
@@ -2444,13 +2444,13 @@ public class CollectionFindTest extends BaseCollectionTestCase {
         assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires operator that produce a JSON value\\.",
                 () -> this.collection.find("(1+2) overlaps [1, 2, 3]").execute());
 
-        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires function that produce a JSON value\\.",
+        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires appl_main.function that produce a JSON value\\.",
                 () -> this.collection.find("concat('name', '6') overlaps ['name1', 'name2', 'name6']").execute());
 
         assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires operator that produce a JSON value\\.",
                 () -> this.collection.find("(1+2) overlaps $.ARR").execute());
 
-        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires function that produce a JSON value\\.",
+        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires appl_main.function that produce a JSON value\\.",
                 () -> this.collection.find("concat('name', '6') overlaps $.ARR1").execute());
 
         Table tabNew = this.schema.getCollectionAsTable(this.collectionName);
@@ -2462,7 +2462,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
         rows.next();
         assertEquals(3, rows.count());
 
-        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires function that produce a JSON value\\.",
+        assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires appl_main.function that produce a JSON value\\.",
                 () -> tabNew.select("doc->$._id as _id").where("expr(1+2) overlaps [1, 2, 3]").execute());
 
         assertThrows(XProtocolError.class, "ERROR 5154 \\(HY000\\) OVERLAPS expression requires operator that produce a JSON value\\.",
@@ -3893,7 +3893,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
             assertEquals((long) 106, (long) ((JsonNumber) doc.get("max_f3")).getInteger());
             assertFalse(docs.hasNext());
 
-            sqlUpdate("drop function if exists abcd");
+            sqlUpdate("drop appl_main.function if exists abcd");
             sqlUpdate(
                     "CREATE FUNCTION abcd (`p1 col1` CHAR(20)) RETURNS ENUM('YES','NO')  COMMENT 'Sample Function abcd'  DETERMINISTIC RETURN  IF(EXISTS(SELECT 1 ), 'YES', 'NO' )");
 
@@ -3921,7 +3921,7 @@ public class CollectionFindTest extends BaseCollectionTestCase {
             assertEquals("YES", ((JsonString) doc.get("X")).getString());
             assertFalse(docs.hasNext());
         } finally {
-            sqlUpdate("drop function if exists abcd");
+            sqlUpdate("drop appl_main.function if exists abcd");
 
         }
     }

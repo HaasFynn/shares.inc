@@ -295,7 +295,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
 
     /**
      * Tests fix forBUG#10310 - Driver doesn't support {?=CALL(...)} for calling stored functions.
-     * This involved adding support for function retrieval to DatabaseMetaData.getProcedures() and getProcedureColumns() as well.
+     * This involved adding support for appl_main.function retrieval to DatabaseMetaData.getProcedures() and getProcedureColumns() as well.
      *
      * @throws Exception
      */
@@ -342,11 +342,11 @@ public class CallableStatementRegressionTest extends BaseTestCase {
 
             assertFalse(cStmt.execute());
             assertEquals(2f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             assertEquals(-1, cStmt.executeUpdate());
             assertEquals(2f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             cStmt.setFloat("a", 4);
             cStmt.setInt("b", 1);
@@ -354,11 +354,11 @@ public class CallableStatementRegressionTest extends BaseTestCase {
 
             assertFalse(cStmt.execute());
             assertEquals(4f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             assertEquals(-1, cStmt.executeUpdate());
             assertEquals(4f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             // Check metadata while we're at it
 
@@ -391,11 +391,11 @@ public class CallableStatementRegressionTest extends BaseTestCase {
 
             assertFalse(cStmt.execute());
             assertEquals(4f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             assertEquals(-1, cStmt.executeUpdate());
             assertEquals(4f, cStmt.getInt(1), .001);
-            assertEquals("java.lang.Integer", cStmt.getObject(1).getClass().getName());
+            assertEquals("java.appl_main.lang.Integer", cStmt.getObject(1).getClass().getName());
 
             assertEquals(2, cStmt.getParameterMetaData().getParameterCount());
             assertEquals(Types.INTEGER, cStmt.getParameterMetaData().getParameterType(1));
@@ -903,7 +903,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
     }
 
     /**
-     * Tests fix for Bug#31823 - CallableStatement.setNull() on a stored function would throw an ArrayIndexOutOfBounds when setting the last parameter to null
+     * Tests fix for Bug#31823 - CallableStatement.setNull() on a stored appl_main.function would throw an ArrayIndexOutOfBounds when setting the last parameter to null
      * when calling setNull().
      *
      * @throws Exception
@@ -915,7 +915,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
         createFunction("f_testBug31823", "(value_1_v BIGINT,value_2_v VARCHAR(20)) RETURNS BIGINT "
                 + "DETERMINISTIC MODIFIES SQL DATA BEGIN INSERT INTO testBug31823 VALUES (value_1_v,value_2_v); RETURN value_1_v; END;");
 
-        // Prepare the function call
+        // Prepare the appl_main.function call
         CallableStatement callable = null;
 
         try {
@@ -1444,7 +1444,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
         cstmtP.close();
 
         /*
-         * Test function.
+         * Test appl_main.function.
          */
         createFunction("`testBug84324-db`.`testBug84324-func`", "(a INT, b VARCHAR(123)) RETURNS INT DETERMINISTIC BEGIN RETURN a + LENGTH(b); END");
 
@@ -1474,7 +1474,7 @@ public class CallableStatementRegressionTest extends BaseTestCase {
         assertThrows(SQLException.class, () -> {
             cstmtF.execute();
             return null;
-        }); // Although the function metadata could be obtained, the end query actually fails due to syntax errors.
+        }); // Although the appl_main.function metadata could be obtained, the end query actually fails due to syntax errors.
         cstmtP.close();
         cstmtF.close();
     }

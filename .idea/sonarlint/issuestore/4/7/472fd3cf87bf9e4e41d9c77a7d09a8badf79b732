@@ -1,0 +1,69 @@
+
+
+java:S1192f"dDefine a constant instead of duplicating this literal "SELECT * FROM transaction WHERE id=" 3 times.(‹šÃÀıÿÿÿÿ
+]
+java:S1192F"GDefine a constant instead of duplicating this literal "userdb" 4 times.(¾ìªõ
+b
+java:S1192="LDefine a constant instead of duplicating this literal "shares_main" 3 times.(°½âš
+—
+java:S1192i"€Define a constant instead of duplicating this literal "Beim auslesen der Transaktionsliste ist ein Fehler aufgetreten!" 3 times.(ªÿİ
+o
+java:S1192™"SDefine a constant instead of duplicating this literal "shares_investments" 8 times.(îµ‘­ùÿÿÿÿ
+Œ
+java:S1319—"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(”Óüÿÿÿÿ
+Œ
+java:S1319Ï"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûöºÏüÿÿÿÿ
+‡
+java:S1319ê"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(øª£Õ
+‰
+java:S1319…"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".( ø¨Çüÿÿÿÿ
+‡
+java:S1319‰"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ü×¥Ó
+{
+java:S1319‰"dThe type of "etfs" should be an interface such as "List" rather than the implementation "ArrayList".(ü×¥Ó
+X
+java:S2184F"BCast one of the operands of this addition operation to a "double".(¾ìªõ
+]
+java:S2184G"BCast one of the operands of this addition operation to a "double".(íùŸºøÿÿÿÿ
+]
+java:S2184H"BCast one of the operands of this addition operation to a "double".(‘ŞÜ“úÿÿÿÿ
+X
+java:S2184I"BCast one of the operands of this addition operation to a "double".( ³Œº
+^
+java:S2259Å"BA "NullPointerException" could be thrown; "conn" is nullable here.(‰êÉİşÿÿÿÿ
+^
+java:S2259Ú"BA "NullPointerException" could be thrown; "conn" is nullable here.(î´Ï¯ùÿÿÿÿ
+^
+java:S2259õ"BA "NullPointerException" could be thrown; "conn" is nullable here.(î´Ï¯ùÿÿÿÿ
+X
+java:S2259U"BA "NullPointerException" could be thrown; "conn" is nullable here.(Ùù¤
+^
+java:S2259“"BA "NullPointerException" could be thrown; "conn" is nullable here.(î´Ï¯ùÿÿÿÿ
+]
+java:S2259>"BA "NullPointerException" could be thrown; "conn" is nullable here.(Á•Éƒÿÿÿÿÿ
+^
+java:S2259¢"BA "NullPointerException" could be thrown; "conn" is nullable here.(î´Ï¯ùÿÿÿÿ
+]
+java:S2259r"BA "NullPointerException" could be thrown; "conn" is nullable here.(î´Ï¯ùÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(²şœÜ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(ì­ÌÌÿÿÿÿÿ
+?
+java:S2115")Add password protection to this database.(ÓàÌÿ
+E	java:S106!"+Replace this use of System.out by a logger.(ÉÕšËûÿÿÿÿ
+@	java:S106#"+Replace this use of System.out by a logger.(å±½À
+O
+java:S11187":Add a private constructor to hide the implicit public one.(Æê»
+O
+java:S1118a":Add a private constructor to hide the implicit public one.(±Ô«2
+=
+java:S1481g"'Remove this unused "rs" local variable.(ÖË¢º
+;
+java:S1168†"$Return an empty map instead of null.(¥¹ï
+P
+java:S1144c"5Remove this unused private "getUserPortfolio" method.(•şÆšıÿÿÿÿ
+O
+java:S1144„"3Remove this unused private "getTransaction" method.(ô½Ïşøÿÿÿÿ
+R
+java:S1144µ"6Remove this unused private "getPriceClassData" method.(ÂÊ›ğüÿÿÿÿ

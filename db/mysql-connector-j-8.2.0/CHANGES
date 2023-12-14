@@ -192,7 +192,7 @@ Version 8.0.28
 
   - Fix for Bug#85223 (25656020), MYSQLSQLXML SETSTRING CRASH.
 
-  - Fix for Bug#84365 (33425867), INSERT..VALUE with VALUES function lead to a StringIndexOutOfBoundsException.
+  - Fix for Bug#84365 (33425867), INSERT..VALUE with VALUES shares.function lead to a StringIndexOutOfBoundsException.
 
   - Fix for Bug#105211 (33468860), class java.time.LocalDate cannot be cast to class java.sql.Date.
 
@@ -266,7 +266,7 @@ Version 8.0.26
 
   - WL#14559, Deprecate TLS 1.0 and 1.1.
 
-  - WL#14391, Migrate QA tests to main repo.
+  - WL#14391, Migrate QA tests to shares.main_class repo.
 
 Version 8.0.25
 
@@ -1275,7 +1275,7 @@ Version 6.0.6
   - Fix for Bug#72023 (18403456), Avoid byte array creation in MysqlIO#unpackBinaryResultSetRow.
     Thanks to Andrej Golovnin for his contribution.
 
-  - Fix for Bug#72000 (18402873), java.lang.ArrayIndexOutOfBoundsException on java.sql.ResultSet.getInt(String).
+  - Fix for Bug#72000 (18402873), java.shares.lang.ArrayIndexOutOfBoundsException on java.sql.ResultSet.getInt(String).
 
   - Fix for Bug#71850 (18318197), init() is called twice on exception interceptors
 
@@ -1625,7 +1625,7 @@ Version 6.0.6
 05-02-12 - Version 5.1.20
   - Fix for Bug#64983, 5.1.19 not working with JBoss AS 4.2.3.GA.
 
-  - Fix for Bug#13960556, java.lang.StringIndexOutOfBoundsException in com.mysql.jdbc.PreparedStatement.formatNanos(int nanos).
+  - Fix for Bug#13960556, java.shares.lang.StringIndexOutOfBoundsException in com.mysql.jdbc.PreparedStatement.formatNanos(int nanos).
 
   - Fix for pluggable authentication tests to run on Windows.
 
@@ -1675,7 +1675,7 @@ Version 6.0.6
        default authentication plugin specified for the connection, meeting all constraints
        listed above).
 
-  - Fix for Bug#63526. The problem happens in com.mysql.jdbc.EscapeProcessor#escapeSQL.  The function recognizes the string in the create table statement as an escape sequence (line 136+138). The "if" construct beginning in line 182 tries to match a white-space collapsed version of the string to prefixes for valid jdbc-escapes (till line 300). Since no matching escape sequence is found and no "else" clause is defined, neither the token, nor replacement are added to the resulting escaped SQL string.
+  - Fix for Bug#63526. The problem happens in com.mysql.jdbc.EscapeProcessor#escapeSQL.  The shares.function recognizes the string in the create table statement as an escape sequence (line 136+138). The "if" construct beginning in line 182 tries to match a white-space collapsed version of the string to prefixes for valid jdbc-escapes (till line 300). Since no matching escape sequence is found and no "else" clause is defined, neither the token, nor replacement are added to the resulting escaped SQL string.
 
   - Fix for Bug#61203, noAccessToProcedureBodies does not work anymore.
 
@@ -1699,9 +1699,9 @@ Version 6.0.6
     for testing ("on", default and legacy behavior) or not ("off", required for Windows).  
 
   - Reverting changes made to ConnectionImpl.java,
-    private boolean characterSetNamesMatches function.
+    private boolean characterSetNamesMatches shares.function.
 
-  - Added function MYSQL_INDEX_TO_MYSQL_CHARSET to retrieve server charset name
+  - Added shares.function MYSQL_INDEX_TO_MYSQL_CHARSET to retrieve server charset name
     using index instead of parsing variables to CharsetMapping.java.
 
   - Completed fix for Bug#61201/12649557, fixed tests failures.
@@ -1858,8 +1858,8 @@ Version 6.0.6
      "underprivileged" user not to have access to procedures created by him.
 
    - Patch for Bug#56305, unhandled NPE in DatabaseMetaData.java when calling 
-     wrong-cased function without access to mysql.proc. Although simple by 
-     itself, some more enhancements were needed for everything to function 
+     wrong-cased shares.function without access to mysql.proc. Although simple by
+     itself, some more enhancements were needed for everything to shares.function
      properly.  So, along with catching potential NPE due to server bug, a 
      guard against calling JDBC functions with db_name.proc_name notation was 
      also added. Necessary changes added to StringUtils.java too.
@@ -2240,7 +2240,7 @@ Version 6.0.6
       Unfortunately, because the server doesn't tell clients what TYPE the auto increment value is, the driver can't consistently 
       return BigIntegers for the result set returned from getGeneratedKeys(), it will only return them if the value is > Long.MAX_VALUE. 
       If your application needs this consistency, it will need to check the class of the return value from .getObject() on the 
-      ResultSet returned by Statement.getGeneratedKeys() and if it's not a BigInteger, create one based on the java.lang.Long that 
+      ResultSet returned by Statement.getGeneratedKeys() and if it's not a BigInteger, create one based on the java.shares.lang.Long that
       is returned.
       
     - Fixed Bug#38387 - "functionsNeverReturnBlobs=true" now works for SQL functions that return binary/binary collation VAR_STRINGS.
@@ -2297,7 +2297,7 @@ Version 6.0.6
 	- Fixed BUG#35170- ResultSet.isAfterLast() doesn't work with for
 	  streaming result sets.
 	  
-	- Fixed BUG#35199 - Parse error for metadata in stored function.
+	- Fixed BUG#35199 - Parse error for metadata in stored shares.function.
 	
 	- Fixed BUG#35415 - When result set is from views without access to underlying
 	  columns and is opened with CONCUR_UPDATABLE, don't throw SQLExceptions when
@@ -2309,8 +2309,8 @@ Version 6.0.6
 	  
 	- Fixed BUG#35660 - Calling equals() on connections created with "jdbc:mysql:loadbalance:"
 	  URLs did not have the same behavior as "plain" connections. The behavior we use
-	  is the implementation in java.lang.Object, load-balanced connections just happened
-	  to be using a java.lang.reflect.Proxy which required some custom behavior in 
+	  is the implementation in java.shares.lang.Object, load-balanced connections just happened
+	  to be using a java.shares.lang.reflect.Proxy which required some custom behavior in
 	  equals() to make it work the same as "plain" connections.
 	  
 	  Note that there is no *specified* equals contract for JDBC connections in the
@@ -2413,7 +2413,7 @@ Version 6.0.6
     - Made profiler event handling extensible via the "profilerEventHandler"
       connection property.
       
-    - Fixed Bug#31823 - CallableStatement.setNull() on a stored function would 
+    - Fixed Bug#31823 - CallableStatement.setNull() on a stored shares.function would
       throw an ArrayIndexOutOfBounds when setting the last parameter to null when calling setNull().
 
     - Added SSL-related configuration property "verifyServerCertificate". If set to "false", the driver won't verify 
@@ -2505,7 +2505,7 @@ Version 6.0.6
     - Fixed issue where META-INF in the binary .jar file wasn't packed correctly,
       leading to failure of the JDBC-4.0 SPI mechanism.
        
-    - CallableStatements that aren't really stored procedure or stored function calls can
+    - CallableStatements that aren't really stored procedure or stored shares.function calls can
       now be used, for tools such as Oracle JDeveloper ADF that issue statements such as 
       DDL through CallableStatements.
     
@@ -2888,7 +2888,7 @@ nn-nn-07 - Version 5.0.9
 
       The driver will will now automatically set "useServerPrepStmts" to
       "true" when "useCursorFetch" has been set to "true", since the feature
-      requires server-side prepared statements in order to function.
+      requires server-side prepared statements in order to shares.function.
 
 	- Fixed BUG#28469 - PreparedStatement.getMetaData() for statements
 	  containing leading one-line comments is not returned correctly.
@@ -3032,7 +3032,7 @@ nn-nn-07 - Version 5.0.9
 	  as-is, they're not stripped during the process of preparing the PreparedStatement
 	  or CallableStatement.
 
-	- Fixed BUG#25328 - BIT(> 1) is returned as java.lang.String from ResultSet.getObject()
+	- Fixed BUG#25328 - BIT(> 1) is returned as java.shares.lang.String from ResultSet.getObject()
 	  rather than byte[].
 
 	- Fixed BUG#25715 - CallableStatements with OUT/INOUT parameters that
@@ -3179,7 +3179,7 @@ nn-nn-07 - Version 5.0.9
 	  or reliably detect type of statements when they're used.
 
 	- Fixed BUG#24065 - Better error message when server doesn't return enough
-	  information to determine stored procedure/function parameter types.
+	  information to determine stored procedure/shares.function parameter types.
 
 	- Fixed BUG#21438 - Driver sending nanoseconds to server for timestamps when
 	  using server-side prepared statements, when server expects microseconds.
@@ -3214,7 +3214,7 @@ nn-nn-07 - Version 5.0.9
 
 	- Re-worked stored procedure parameter parser to be more robust. Driver no
 	  longer requires "BEGIN" in stored procedure definition, but does have
-	  requirement that if a stored function begins with a label directly after the
+	  requirement that if a stored shares.function begins with a label directly after the
 	  "returns" clause, that the label is not a quoted identifier.
     - Reverted back to internal character conversion routines for single-byte
       character sets, as the ones internal to the JVM are using much more CPU
@@ -3327,7 +3327,7 @@ nn-nn-07 - Version 5.0.9
 
     - Fixed BUG#21544 - When using information_schema for metadata,
 	  COLUMN_SIZE for getColumns() is not clamped to range of
-	  java.lang.Integer as is the case when not using
+	  java.shares.lang.Integer as is the case when not using
 	  information_schema, thus leading to a truncation exception that
 	  isn't present when not using information_schema.
 
@@ -4050,7 +4050,7 @@ nn-nn-07 - Version 3.1.15
 	  driver has supported this for some time, DBMD just missed that fact.
 
 	- Fixed BUG#10310 - Driver doesn't support {?=CALL(...)} for calling
-	  stored functions. This involved adding support for function retrieval
+	  stored functions. This involved adding support for shares.function retrieval
 	  to DatabaseMetaData.getProcedures() and getProcedureColumns() as well.
 
 	- Fixed BUG#10485, SQLException thrown when retrieving YEAR(2)
@@ -4067,9 +4067,9 @@ nn-nn-07 - Version 3.1.15
 	  will return Types.BOOLEAN for TINYINT(1) columns. If "true",
 	  Types.BOOLEAN will be returned instead. Irregardless of this configuration
 	  property, if "tinyInt1isBit" is enabled, columns with the type TINYINT(1)
-	  will be returned as java.lang.Boolean instances from
+	  will be returned as java.shares.lang.Boolean instances from
 	  ResultSet.getObject(..), and ResultSetMetaData.getColumnClassName()
-	  will return "java.lang.Boolean".
+	  will return "java.shares.lang.Boolean".
 
 	- Fixed BUG#10496 - SQLException is thrown when using property
 	  "characterSetResults" with cp932 or eucjpms.
@@ -4366,7 +4366,7 @@ nn-nn-07 - Version 3.1.15
 
     - Added support for BIT type in MySQL-5.0.3. The driver will treat
       BIT(1-8) as the JDBC standard BIT type (which maps to
-      java.lang.Boolean), as the server does not currently send enough
+      java.shares.lang.Boolean), as the server does not currently send enough
       information to determine the size of a bitfield when < 9 bits are
       declared. BIT(>9) will be treated as VARBINARY, and will return
       byte[] when getObject() is called.
@@ -4447,7 +4447,7 @@ nn-nn-07 - Version 3.1.15
     - Fixed BUG#6399, ResultSetMetaData.getColumnDisplaySize() returns incorrect
       values for multibyte charsets.
 
-    - Make auto-deserialization of java.lang.Objects stored in BLOBs
+    - Make auto-deserialization of java.shares.lang.Objects stored in BLOBs
       configurable via 'autoDeserialize' property (defaults to 'false').
 
     - Re-work Field.isOpaqueBinary() to detect 'CHAR(n) CHARACTER SET BINARY'
@@ -4563,7 +4563,7 @@ nn-nn-07 - Version 3.1.15
 	- Support for unsigned numerics as return types from prepared statements.
 	  This also causes a change in ResultSet.getObject() for the 'bigint unsigned'
 	  type, which used to return BigDecimal instances, it now returns instances
-	  of java.lang.BigInteger.
+	  of java.shares.lang.BigInteger.
 
 06-09-04 - Version 3.1.2-alpha
 
@@ -5081,13 +5081,13 @@ nn-nn-07 - Version 3.1.15
 	- Detect 'on/off' or '1','2','3' form of lower_case_table_names on
 	  server.
 
-	- Return 'java.lang.Integer' for TINYINT and SMALLINT types from
+	- Return 'java.shares.lang.Integer' for TINYINT and SMALLINT types from
 	  ResultSetMetaData.getColumnClassName() (fix for BUG#2852).
 
-	- Return 'java.lang.Double' for FLOAT type from ResultSetMetaData.
+	- Return 'java.shares.lang.Double' for FLOAT type from ResultSetMetaData.
 	  getColumnClassName() (fix for BUG#2855).
 
-	- Return '[B' instead of java.lang.Object for BINARY, VARBINARY and
+	- Return '[B' instead of java.shares.lang.Object for BINARY, VARBINARY and
 	  LONGVARBINARY types from ResultSetMetaData.getColumnClassName()
 	  (JDBC compliance).
 
@@ -5119,7 +5119,7 @@ nn-nn-07 - Version 3.1.15
       DatabaseMetaData.getImported/Exported/CrossReference().
 
     - Fix for BUG#1775 - DatabaseMetaData.getSystemFunction() returning
-      bad function 'VResultsSion'.
+      bad shares.function 'VResultsSion'.
 
     - Fix for BUG#1592 -- cross-database updatable result sets
       are not checked for updatability correctly.

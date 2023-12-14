@@ -1,0 +1,73 @@
+
+|
+java:S1192"aDefine a constant instead of duplicating this literal "-------------------------------" 10 times.(ç‘ë®üÿÿÿÿ
+p
+java:S1192P"ZDefine a constant instead of duplicating this literal "-------------------------" 6 times.(ğÔ‘¬
+P
+java:S1118	":Add a private constructor to hide the implicit public one.(ø«­ª
+E	java:S106"+Replace this use of System.out by a logger.(¶´›§şÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(¸”à¥ùÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(š›ÿïÿÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(ùÏùˆ
+E	java:S106"+Replace this use of System.out by a logger.(¶´›§şÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(¸”à¥ùÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(™©¢çÿÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(Â†üÔıÿÿÿÿ
+?	java:S106"+Replace this use of System.out by a logger.(ÁêÒ"
+E	java:S106"+Replace this use of System.out by a logger.(ŞäÌéøÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(Š €€
+?	java:S106"+Replace this use of System.out by a logger.(ÈÎĞ
+@	java:S106"+Replace this use of System.out by a logger.(Õ»ˆí
+E	java:S106"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106!"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106""+Replace this use of System.out by a logger.(õú­Öÿÿÿÿÿ
+@	java:S106#"+Replace this use of System.out by a logger.(úÕ€®
+@	java:S106$"+Replace this use of System.out by a logger.(šØ¹Ó
+@	java:S106%"+Replace this use of System.out by a logger.(©…ÇÖ
+E	java:S106&"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106*"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106+"+Replace this use of System.out by a logger.(‰ê Üûÿÿÿÿ
+E	java:S106,"+Replace this use of System.out by a logger.(á®§îıÿÿÿÿ
+@	java:S106-"+Replace this use of System.out by a logger.(Û¼ƒ¥
+E	java:S106."+Replace this use of System.out by a logger.(şÛñãøÿÿÿÿ
+E	java:S106/"+Replace this use of System.out by a logger.(¸¢‚üÿÿÿÿ
+E	java:S1060"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S1065"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S1066"+Replace this use of System.out by a logger.(ÕÅÃ±úÿÿÿÿ
+E	java:S1069"+Replace this use of System.out by a logger.(±èæ¼ùÿÿÿÿ
+E	java:S106;"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+E	java:S106?"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+@	java:S106@"+Replace this use of System.out by a logger.(Á×®
+?	java:S106B"+Replace this use of System.out by a logger.(Ù¼ê"
+@	java:S106C"+Replace this use of System.out by a logger.(æá‡…
+E	java:S106E"+Replace this use of System.out by a logger.(ç‘ë®üÿÿÿÿ
+?	java:S106I"+Replace this use of System.err by a logger.(†Õê^
+E	java:S106J"+Replace this use of System.err by a logger.(êõ‰¡ıÿÿÿÿ
+?	java:S106K"+Replace this use of System.err by a logger.(†Õê^
+@	java:S106O"+Replace this use of System.out by a logger.(­äãÀ
+@	java:S106P"+Replace this use of System.out by a logger.(ğÔ‘¬
+E	java:S106Q"+Replace this use of System.out by a logger.(Ä½¢ûüÿÿÿÿ
+@	java:S106R"+Replace this use of System.out by a logger.(ğÔ‘¬
+V	java:S125U"<This block of commented-out lines of code should be removed.(ûÖ×Öÿÿÿÿÿ
+@	java:S106o"+Replace this use of System.out by a logger.(ğÔ‘¬
+@	java:S106p"+Replace this use of System.out by a logger.(±Ÿü‚
+@	java:S106q"+Replace this use of System.out by a logger.(ğÔ‘¬
+@	java:S106u"+Replace this use of System.out by a logger.(ğÔ‘¬
+E	java:S106v"+Replace this use of System.out by a logger.(ÏŠ®ûÿÿÿÿ
+@	java:S106w"+Replace this use of System.out by a logger.(¼ñğ
+@	java:S106x"+Replace this use of System.out by a logger.(‹ì‰‰
+@	java:S106y"+Replace this use of System.out by a logger.(ğÔ‘¬
+?	java:S106}"+Replace this use of System.out by a logger.(§‡ô`
+F	java:S106‚"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S106ƒ"+Replace this use of System.out by a logger.(ó…¢
+F	java:S106„"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+F	java:S106†"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S106‡"+Replace this use of System.out by a logger.(ó…¢
+F	java:S106ˆ"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+N
+java:S1128"9Remove this unused import 'main.investment_types.Crypto'.(Ó¿K
+Q
+java:S1128"6Remove this unused import 'main.investment_types.ETF'.(¬¾¨ıÿÿÿÿ
+V
+java:S1128";Remove this unused import 'main.investment_types.Resource'.(áÜìúøÿÿÿÿ
