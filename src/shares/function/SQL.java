@@ -9,9 +9,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static shares.function.SQL.Connect.getHighestIDEntry;
-import static shares.function.SQL.Connect.getNewConnection;
-
 public class SQL {
 
     public static class Connect {
@@ -60,7 +57,7 @@ public class SQL {
 
         private static void setDataInDataset(User user) {
             Connection conn = Connect.getNewConnection("shares_main");
-            try (PreparedStatement ps = conn.prepareStatement("INSERT INTO userdb(user_id, username, firstname, lastname, email, password, accountbalance, userShares_id, userResource_id, userCrypto_id, userETF_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);")) {
+            try (PreparedStatement ps = conn.prepareStatement("INSERT INTO userdb(user_id, username, firstname, lastname, email, password, accountbalance) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
                 ps.setString(1, user.userID);
                 ps.setString(2, user.username);
                 ps.setString(3, user.firstName);
@@ -68,10 +65,6 @@ public class SQL {
                 ps.setString(5, user.email);
                 ps.setString(6, user.password);
                 ps.setDouble(7, user.accountBalance);
-                ps.setDouble(8, getHighestIDEntry(conn, "userdb", "userShares_id") + 1);
-                ps.setDouble(9, getHighestIDEntry(conn, "userdb", "userResource_id") + 1);
-                ps.setDouble(10, getHighestIDEntry(conn, "userdb", "userCrypto_id") + 1);
-                ps.setDouble(11, getHighestIDEntry(conn, "userdb", "userETF_id") + 1);
                 ps.executeUpdate();
             } catch (SQLException e) {
                 Print.printError("Beim Bearbeiten des Datensatzes ist ein Fehler passiert!");
@@ -83,9 +76,9 @@ public class SQL {
 
         public static void deleteUser(String userID) {
             Connection conn = Connect.getNewConnection("shares_main");
-            try (PreparedStatement ps = conn.prepareStatement("DELETE FROM userdb WHERE userID=?")) {
+            try (PreparedStatement ps = conn.prepareStatement("DELETE FROM userdb WHERE user_id=?")) {
                 ps.setString(1, userID);
-                ps.executeQuery();
+                ps.execute();
             } catch (SQLException e) {
                 Print.printError("Beim Löschen eines Datensatzes ist ein Fehler unterlaufen!");
                 Print.customStackPrint(e);
@@ -107,6 +100,19 @@ public class SQL {
                 ps.executeUpdate();
             } catch (SQLException e) {
                 Print.printError("Beim Updaten eines User-Eintrags ist ein Fehler unterlaufen!");
+                e.printStackTrace();
+            }
+        }
+
+        public static void createNewUserShareConnection(int idOfUser, int idOfShare, int amountOfShares) {
+            Connection conn = Connect.getNewConnection("shares_connections");
+            try (PreparedStatement ps = conn.prepareStatement("INSERT INTO user_shares(userID, shareID, amountOfShares) VALUES (?, ?, ?);")) {
+                ps.setInt(1, idOfUser);
+                ps.setInt(2, idOfShare);
+                ps.setInt(3, amountOfShares);
+                ps.execute();
+            } catch (SQLException e) {
+                Print.printError("Beim Erstellen einer User-Share Zwischentabelle ist ein Fehler passiert!");
                 e.printStackTrace();
             }
         }
@@ -319,5 +325,52 @@ public class SQL {
             }
             return 0;
         }
+
+        public static int getIDFromUser(String userID) {
+            int index = 0;
+            Connection conn = Connect.getNewConnection("shares_main");
+            try (PreparedStatement ps = conn.prepareStatement("SELECT id FROM userdb WHERE user_id = ?")) {
+                ps.setString(1, userID);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                index = rs.getInt(1);
+            } catch (SQLException e) {
+                Print.printError("Beim auslesen der ID von einem User ist ein Fehler passiert!");
+            }
+            return index;
+        }
+
+        public static int getIDFromInvestment(String database, String table, String shortl) {
+            int index = 0;
+            Connection conn = Connect.getNewConnection(database);
+            try (PreparedStatement ps = conn.prepareStatement("SELECT id FROM" + table + " WHERE shortl = ?")) {
+                ps.setString(1, shortl);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                index = rs.getInt(1);
+            } catch (SQLException e) {
+                Print.printError("Beim auslesen der ID von einem User ist ein Fehler passiert!");
+            }
+            return index;
+        }
+
+        public static Portfolio getUserPorfolio() {
+            Portfolio portfolio = new Portfolio();
+            portfolio.shares = getPortfolioShares();
+        }
+
+        private static ArrayList<Share> getPortfolioShares(String database, String table, int idOfUser) {
+            ArrayList<Share> shares = new ArrayList<>();
+            Connection conn = Connect.getNewConnection(database);
+            try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + table +" WHERE userID = ?")) {
+                ps.setInt(1, idOfUser);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+
+            } catch (SQLException e) {
+                Print.printError("Beim herauslesen der Portfolio Aktieneinträge ist ein Fehler unterlaufen!");
+            }
+            return null;
     }
+}
 }

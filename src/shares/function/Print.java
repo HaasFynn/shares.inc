@@ -1,8 +1,12 @@
 package shares.function;
 
 import shares.game.User;
+import shares.investment_types.Crypto;
+import shares.investment_types.ETF;
+import shares.investment_types.Resource;
 import shares.investment_types.Share;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Print {
@@ -60,12 +64,15 @@ public class Print {
         System.out.println("-------------------------------");
     }
 
-    public static void printCurrentInvestmentlist(String currentInvestment, Share[] shareNames) {
+    public static void printShares(ArrayList<Share> shareList) {
         System.out.println("-------------------------------");
-        System.out.println(currentInvestment);
-        for (Share share : shareNames) {
+        System.out.println("Aktien");
+        Share[] sharesArray = shareList.toArray(new Share[0]);
+        for (Share share : sharesArray) {
+            System.out.println("-------------------------------");
             System.out.println("Name: " + share.name);
             System.out.println("Preis pro Anteil: " + share.pricePerShare);
+            System.out.println("-------------------------------");
         }
         System.out.println("-------------------------------");
     }
@@ -83,30 +90,26 @@ public class Print {
         System.out.println("------------------------------------------------------------");
     }
 
-    /*public static void printUserPortfolio(User user) {
+    public static void printUserPortfolio(User user) {
         System.out.println("-------------------------");
         System.out.println("Aktien:");
         for (Share share : user.userPortfolio.shares) {
-            System.out.println(share.name + "\n Anzahl Anteile: " + share.userAmountShares);
         }
         System.out.println("-------------------");
         System.out.println("Rohstoffe:");
         for (Resource resource : user.userPortfolio.resources) {
-            System.out.println(resource.name + "\n Anzahl Anteile: " + resource.userAmountShares);
         }
         System.out.println("-------------------");
         System.out.println("ETF's");
         for (ETF etf : user.userPortfolio.ETFs) {
-            System.out.println(etf.name + "\n Anzahl Anteile: " + etf.userAmountShares);
         }
         System.out.println("-------------------");
         System.out.println("Crypto:");
         for (Crypto crypto : user.userPortfolio.crypto) {
-            System.out.println(crypto.name + "\n Anzahl Anteile: " + crypto.userAmountShares);
         }
         System.out.println("-------------------------");
 
-    }*/
+    }
 
     public static void printUserAccountBalance(User loggedInUser) {
         System.out.println("-------------------------");

@@ -88,7 +88,7 @@ public class Operator {
                 showInvestOperator();
                 break;
             case 3:
-                //Print.printUserPortfolio(loggedInUser);
+                showUserPortfolio();
                 break;
             case 4:
                 Print.printUserAccountBalance(loggedInUser);
@@ -106,6 +106,10 @@ public class Operator {
                 Print.printError("Diese Funktion existiert nicht!");
         }
         return false;
+    }
+
+    private void showUserPortfolio() {
+
     }
 
 
@@ -175,8 +179,10 @@ public class Operator {
         Print.printInvestOccasions();
         switch (Reader.getIntAnswer("In was möchtest du investieren?")) {
             case 1:
+                Print.printShares(shares);
                 buyShares();
         }
+
 
     }
 
@@ -190,6 +196,12 @@ public class Operator {
                 int amountOfShares = getAmountOfShares(amountOfMoney, currentShare);
                 currentShare.existingSharesAmount -= amountOfShares;
                 loggedInUser.userPortfolio.shares.add(currentShare);
+                SQL.SetInDB.updateUser(loggedInUser);
+                int idOfUser = SQL.GetFromDB.getIDFromUser(loggedInUser.userID);
+                int idOfShare = SQL.GetFromDB.getIDFromInvestment("shares_investments", "share", currentShare.shortl);
+                SQL.SetInDB.createNewUserShareConnection(idOfUser, idOfShare, amountOfShares);
+            } else {
+                System.out.println("Du hast nicht genug Geld!");
             }
         }
     }
@@ -200,7 +212,7 @@ public class Operator {
 
     private Share getShare(String shareNameInput) {
         for (Share share : shares) {
-            if (shareNameInput.equals(share.name)) {
+            if (shareNameInput.equalsIgnoreCase(share.name)) {
                 return share;
             }
         }
@@ -216,7 +228,7 @@ public class Operator {
     }
 
     private boolean isUserAuthorizedToDeleteAcc() throws IOException {
-        String passwordInput = Reader.getStringAnswer("Geben sie ihr Passwort ein:");
+        String passwordInput = getPasswordHashed("Geben sie ihr Passwort ein:");
         if (passwordInput.equals(loggedInUser.password)) {
             return Reader.getBooleanAnswer("Sind sie sicher, dass sie ihren Account löschen möchten? (Diese Aktion ist nicht rückgängig machbar!)");
         } else {
@@ -357,4 +369,5 @@ public class Operator {
     public static long getMillis() {
         return System.currentTimeMillis();
     }
+
 }

@@ -25,7 +25,7 @@ public class User {
         this.lastName = "";
         this.email = "";
         this.password = "";
-        this.accountBalance = 0.0;
+        this.accountBalance = 1000.0;
         this.userTransactionList = getUserTransactionList();
         this.userPortfolio = getUserPortfolio();
     }
